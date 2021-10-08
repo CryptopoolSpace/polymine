@@ -3,7 +3,7 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { AppComponent } from "./app.component";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { ClarityModule } from "@clr/angular";
-import { Game } from "./model/game";
+import { Miners } from "./model/Miners";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormatPipe } from "./format.pipe";
 import { Action } from "./model/actions/abstractAction";
@@ -15,8 +15,8 @@ import { ToastrModule } from "ngx-toastr";
 import { FormsModule } from "@angular/forms";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 
-export function getGame(): Game {
-  return new Game();
+export function getMiners(): Miners {
+  return new Miners();
 }
 
 export function getAction(): Action {
