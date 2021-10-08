@@ -11,12 +11,12 @@ import { Resource } from "../model/resource/resource";
 import { Subscription } from "rxjs";
 
 @Component({
-  selector: "app-material-list",
-  templateUrl: "./material-list.component.html",
-  styleUrls: ["./material-list.component.scss"],
+  selector: "app-Crypto-list",
+  templateUrl: "./Crypto-list.component.html",
+  styleUrls: ["./Crypto-list.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MaterialListComponent implements OnInit, OnDestroy {
+export class CryptoListComponent implements OnInit, OnDestroy {
   @HostBinding("class")
   subNav = "sub-nav";
 

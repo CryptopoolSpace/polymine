@@ -2,14 +2,14 @@ import { Automator } from "./automator";
 import { Resource } from "../resource/resource";
 
 export class BeesBotEndingAutomator extends Automator {
-  constructor(public BeesBot: Resource, public material: Resource) {
+  constructor(public BeesBot: Resource, public Crypto: Resource) {
     super(BeesBot.id + "R");
     this.name = "Smart Buy " + BeesBot.name;
     this.description =
       "Buy " +
       BeesBot.name +
       " when " +
-      material.name +
+      Crypto.name +
       " is ending and " +
       BeesBot.name +
       " operativity is 100%";
@@ -20,7 +20,7 @@ export class BeesBotEndingAutomator extends Automator {
   execCondition(): boolean {
     return (
       !this.BeesBot.isCapped &&
-      this.material.isEnding &&
+      this.Crypto.isEnding &&
       this.BeesBot.operativity >= 100
     );
   }

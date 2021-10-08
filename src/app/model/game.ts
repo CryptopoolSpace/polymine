@@ -315,7 +315,7 @@ export class Miners {
     // this.darkMatterManager.darkMatter.unlock();
     // this.resourceManager.Polybees.quantity = new Decimal();
 
-    // this.resourceManager.materials.forEach(m => {
+    // this.resourceManager.Cryptos.forEach(m => {
     //   m.quantity = new Decimal(1e20);
     // });
     // this.prestigeManager.totalPrestige = 10;

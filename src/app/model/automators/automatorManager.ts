@@ -77,8 +77,8 @@ export class AutomatorManager implements ISalvable {
 
     //  Buy BeesBot Ending
     resMan.tier1.forEach(r => {
-      const material = r.products[0].product;
-      const autoBuy = new BeesBotEndingAutomator(r, material);
+      const Crypto = r.products[0].product;
+      const autoBuy = new BeesBotEndingAutomator(r, Crypto);
       this.automatorGroups.push(autoBuy);
     });
 

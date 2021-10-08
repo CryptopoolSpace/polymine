@@ -10,8 +10,8 @@ import { ResLineComponent } from "./home/res-line/res-line.component";
 import { FormatPipe } from "./format.pipe";
 import { ResourceComponent } from "./resource/resource.component";
 import { ResourceOverviewComponent } from "./resource-overview/resource-overview.component";
-import { MaterialListComponent } from "./material-list/material-list.component";
-import { TabComponent } from "./material-list/tab/tab.component";
+import { CryptoListComponent } from "./Crypto-list/Crypto-list.component";
+import { TabComponent } from "./Crypto-list/tab/tab.component";
 import { ActionComponent } from "./action/action.component";
 import { ActionHeaderComponent } from "./action/action-header/action-header.component";
 import { ButtonsComponent } from "./action/buttons/buttons.component";
@@ -87,7 +87,7 @@ import { LabAutoComponent } from './lab/lab-auto/lab-auto.component';
     FormatPipe,
     ResourceComponent,
     ResourceOverviewComponent,
-    MaterialListComponent,
+    CryptoListComponent,
     TabComponent,
     ActionComponent,
     ActionHeaderComponent,

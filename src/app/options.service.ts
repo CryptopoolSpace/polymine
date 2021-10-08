@@ -18,7 +18,7 @@ export class OptionsService {
   autosaveNotification = true;
   dark = true;
   header = 6;
-  materialPosition = 1;
+  CryptoPosition = 1;
   showI = true;
   noResourceEndPopUp = false;
   timeFormatDetail = false;
@@ -67,7 +67,7 @@ export class OptionsService {
       s: this.autosaveNotification,
       d: this.dark,
       h: this.header,
-      m: this.materialPosition,
+      m: this.CryptoPosition,
       i: this.showI,
       p: this.noResourceEndPopUp,
       w: OptionsService.warpNotification,
@@ -91,7 +91,7 @@ export class OptionsService {
     if ("s" in data) this.autosaveNotification = data.s;
     if ("d" in data) this.dark = data.d;
     if ("h" in data) this.header = data.h;
-    if ("m" in data) this.materialPosition = data.m;
+    if ("m" in data) this.CryptoPosition = data.m;
     if ("i" in data) this.showI = data.i;
     if ("p" in data) this.noResourceEndPopUp = data.p;
     if ("w" in data) OptionsService.warpNotification = data.w;

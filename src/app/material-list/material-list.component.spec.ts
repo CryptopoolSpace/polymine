@@ -1,18 +1,18 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { MaterialListComponent } from "./material-list.component";
+import { CryptoListComponent } from "./Crypto-list.component";
 import { FormatPipe } from "../format.pipe";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { MainService } from "../main.service";
 import { OptionsService } from "../options.service";
 import { defaultImport } from "../app.component.spec";
 
-describe("MaterialListComponent", () => {
-  let component: MaterialListComponent;
-  let fixture: ComponentFixture<MaterialListComponent>;
+describe("CryptoListComponent", () => {
+  let component: CryptoListComponent;
+  let fixture: ComponentFixture<CryptoListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MaterialListComponent, FormatPipe],
+      declarations: [CryptoListComponent, FormatPipe],
       imports: defaultImport(),
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [MainService, OptionsService]
@@ -20,7 +20,7 @@ describe("MaterialListComponent", () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MaterialListComponent);
+    fixture = TestBed.createComponent(CryptoListComponent);
     component = fixture.componentInstance;
     component.ms.start();
     fixture.detectChanges();

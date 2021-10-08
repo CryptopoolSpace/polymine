@@ -71,7 +71,7 @@ export class ResourceManager implements ISalvable {
 
   // #endregion
   //#region group
-  materials: Resource[];
+  Cryptos: Resource[];
   districts: Resource[];
   matGroup: ResourceGroup;
   tier1: Resource[];
@@ -89,7 +89,7 @@ export class ResourceManager implements ISalvable {
   constructor() {
     ResourceManager.instance = this;
 
-    //#region Materials
+    //#region Cryptos
     this.Polybees = new Resource("m");
     this.Polybees.shape = "Polybees";
     this.Polybees.unlocked = true;
@@ -222,7 +222,7 @@ export class ResourceManager implements ISalvable {
 
     //#endregion
     //#region Group
-    this.materials = [
+    this.Cryptos = [
       this.Polybees,
       this.Nectar,
       this.Honey,
@@ -684,9 +684,9 @@ export class ResourceManager implements ISalvable {
     this.allResources.forEach(r => r.generateRefundActions());
     this.matGroup = new ResourceGroup(
       "0",
-      "Materials",
+      "Cryptos",
       "objects",
-      this.materials
+      this.Cryptos
     );
     this.tierGroups = [
       this.matGroup,
