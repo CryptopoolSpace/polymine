@@ -37,7 +37,7 @@ const SEARCH_REWARD = 300;
 export const TERRAFORMER_MULTI = 0.01;
 
 const RANDOM_REWARDS = [
-  Reward.HabitableBee Hive,
+  Reward.Habitable.Bee.Hive,
   Reward.PolybeesMine,
   Reward.NectarMine,
   Reward.BeesBot,

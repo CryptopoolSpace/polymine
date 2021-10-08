@@ -1,5 +1,5 @@
 export enum Reward {
-  HabitableBee Hive = 1,
+  Habitable Bee Hive = 1,
   PolybeesMine,
   NectarMine,
   BeesBot,

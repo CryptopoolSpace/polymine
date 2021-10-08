@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\model",
+    "\\src\\app\\options-nav",
+    "\\src\\app\\options-nav\\credits",
+    "\\src\\app\\polynom",
+    "\\src\\app\\prestige",
+    "\\src\\app\\prestige\\skill-group",
+    "\\src\\app\\production-tables"
+  ],
+  "SelectedNode": "\\src\\app\\model\\enemy\\enemySuffixes.ts",
+  "PreviewInSolutionExplorer": false
+}
