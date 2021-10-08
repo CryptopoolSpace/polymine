@@ -68,13 +68,13 @@ export class FleetManager implements ISalvable {
       s.buyAction.reload();
     });
   }
-  getNavalCapacityFromDrones(): Decimal {
+  getNavalCapacityFromBees(): Decimal {
     const navalCapRes = ResourceManager.getInstance().navalCap;
     return navalCapRes.c;
   }
   reloadNavalCapacity() {
     this.totalNavalCapacity = new Decimal(20).plus(
-      this.getNavalCapacityFromDrones()
+      this.getNavalCapacityFromBees()
     );
 
     const resMan = ResearchManager.getInstance();

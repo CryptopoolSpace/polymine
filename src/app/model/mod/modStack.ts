@@ -18,7 +18,7 @@ export class ModStack implements ISalvable {
   production: Mod;
   HoneyMod: Mod;
   priceMod: Mod;
-  moreDrones: Mod;
+  moreBees: Mod;
   resource: Resource;
   totalBonus = new BonusStack();
   maxPoints = new Decimal();
@@ -58,8 +58,8 @@ export class ModStack implements ISalvable {
         new Bonus(this.HoneyMod, MOD_Honey)
       );
     }
-    this.moreDrones = new Mod("m");
-    this.mods.push(this.moreDrones);
+    this.moreBees = new Mod("m");
+    this.mods.push(this.moreBees);
 
     this.mods.forEach(m => {
       m.resId = resource.id;

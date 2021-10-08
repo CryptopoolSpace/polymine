@@ -30,7 +30,7 @@ export class Automator implements ISalvable {
   canExec(now: number): boolean {
     if (
       this.stopWhenFactory &&
-      ResourceManager.getInstance().droneFactory.quantity.gte(1)
+      ResourceManager.getInstance().BeeFactory.quantity.gte(1)
     ) {
       return false;
     }

@@ -115,8 +115,8 @@ export class Game {
     this.requiredWarp = ZERO_DECIMAL_IMMUTABLE;
 
     if (!this.isPaused || warp) {
-      //  Deploy Drones
-      this.resourceManager.deployDrones();
+      //  Deploy Bees
+      this.resourceManager.deployBees();
 
       if (warp && OptionsService.warpNotification) {
         MainService.toastr.show(

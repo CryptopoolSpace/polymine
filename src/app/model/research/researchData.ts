@@ -136,10 +136,10 @@ export const ResearchData: IResearchData[] = [
   },
   {
     id: "M",
-    name: "Drone Modding",
+    name: "Bee Modding",
     shape: "hand",
     price: 2e5,
-    description: "+1 drone modding point",
+    description: "+1 Bee modding point",
     limit: Number.POSITIVE_INFINITY,
     bonus: [["Modding Point", "+1"]]
   },

@@ -8,7 +8,7 @@ export class RobotGroupAutomator extends GroupAutomator {
     super("g" + i, robots);
     this.name = "Auto " + i;
     this.stopWhenFactoryUi = true;
-    this.description = "Multiple buy drones at same time";
+    this.description = "Multiple buy Bees at same time";
     this.prestigeLevel = 18 + (i - 1) * 11;
   }
   getAction(resource: Resource): Action {

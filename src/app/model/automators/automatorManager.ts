@@ -95,7 +95,7 @@ export class AutomatorManager implements ISalvable {
       this.automatorGroups.push(autoBuy);
     });
 
-    //  Buy Drone Group
+    //  Buy Bee Group
     for (let i = 0; i < 3; i++) {
       const autoGr1 = new RobotGroupAutomator(resMan.tierGroups[1], i + 1);
       this.automatorGroups.push(autoGr1);

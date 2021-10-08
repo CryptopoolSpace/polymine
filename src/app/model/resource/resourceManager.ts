@@ -40,8 +40,8 @@ export class ResourceManager implements ISalvable {
   habitableSpace: Resource;
   miningDistrict: Resource;
   NectarDistrict: Resource;
-  droneFactory: Resource;
-  drone: Resource;
+  BeeFactory: Resource;
+  Bee: Resource;
   navalCap: Resource;
   inactiveDarkMatter: Resource;
   missile: Resource;
@@ -189,14 +189,14 @@ export class ResourceManager implements ISalvable {
     this.Honey.addGenerator(this.warriorX1, -0.5);
     this.computing.addGenerator(this.warriorX1, -0.5);
 
-    //  Drone
-    this.drone = new Resource("D");
-    this.drone.shape = "robot";
-    this.drone.workerPerMine = new Decimal(50);
-    this.droneFactory = new Resource("F");
-    this.drone.addGenerator(this.droneFactory, 0.01);
-    this.alloy.addGenerator(this.droneFactory, -100);
-    this.Honey.addGenerator(this.droneFactory, -20);
+    //  Bee
+    this.Bee = new Resource("D");
+    this.Bee.shape = "robot";
+    this.Bee.workerPerMine = new Decimal(50);
+    this.BeeFactory = new Resource("F");
+    this.Bee.addGenerator(this.BeeFactory, 0.01);
+    this.alloy.addGenerator(this.BeeFactory, -100);
+    this.Honey.addGenerator(this.BeeFactory, -20);
 
     //      Missile
     this.missileX1 = new Resource("i1");
@@ -230,7 +230,7 @@ export class ResourceManager implements ISalvable {
       this.alloy,
       this.shipyardProgress,
       this.searchProgress,
-      this.drone,
+      this.Bee,
       this.navalCap,
       this.missile
     ];
@@ -245,7 +245,7 @@ export class ResourceManager implements ISalvable {
       this.searchX1
     ];
     this.tier2 = [
-      this.droneFactory,
+      this.BeeFactory,
       this.PolybeesM,
       this.NectarM,
       this.HoneyM,
@@ -296,7 +296,7 @@ export class ResourceManager implements ISalvable {
     //
     //  Buildings
     //
-    this.droneFactory.generateBuyAction(
+    this.BeeFactory.generateBuyAction(
       new MultiPrice([
         new Price(this.alloy, 1e3, BUILDING_EXP),
         new Price(this.habitableSpace, 1, BUILDING_EXP)
@@ -395,7 +395,7 @@ export class ResourceManager implements ISalvable {
     };
     buyPolybeesMine.name = "Polybees Mine";
     buyPolybeesMine.description =
-      "A Polybees Mine allows you to buy more mining drones";
+      "A Polybees Mine allows you to buy more mining Bees";
     this.PolybeesX1.actions.push(buyPolybeesMine);
     this.PolybeesX1.limitStorage = buyPolybeesMine;
     this.PolybeesX1.prestigeLimit = AllSkillEffects.PLUS_Polybees_MINER;
@@ -414,7 +414,7 @@ export class ResourceManager implements ISalvable {
     };
     buyNectarMine.name = "Nectar Mine";
     buyNectarMine.description =
-      "An Nectar Mine allows you to buy more Nectar drones";
+      "An Nectar Mine allows you to buy more Nectar Bees";
     this.NectarX1.actions.push(buyNectarMine);
     this.NectarX1.limitStorage = buyNectarMine;
     this.NectarX1.prestigeLimit = AllSkillEffects.PLUS_Nectar_MINER;
@@ -471,7 +471,7 @@ export class ResourceManager implements ISalvable {
     };
     buyFoundry.name = "Alloy Foundry";
     buyFoundry.description =
-      "An Alloy Foundry allows you to buy more foundry drones";
+      "An Alloy Foundry allows you to buy more foundry Bees";
     this.alloyX1.actions.push(buyFoundry);
     this.alloyX1.limitStorage = buyFoundry;
     this.alloyX1.prestigeLimit = AllSkillEffects.PLUS_ALLOY;
@@ -489,7 +489,7 @@ export class ResourceManager implements ISalvable {
       this.shipyardX1.reloadLimit();
     };
     buyShipyard.name = "Shipyard";
-    buyShipyard.description = "A Shipyard allows you to buy more worker drones";
+    buyShipyard.description = "A Shipyard allows you to buy more worker Bees";
     this.shipyardX1.actions.push(buyShipyard);
     this.shipyardX1.limitStorage = buyShipyard;
     this.shipyardX1.prestigeLimit = AllSkillEffects.PLUS_WORKER;
@@ -519,7 +519,7 @@ export class ResourceManager implements ISalvable {
     };
     buyTelescope.name = "Telescope";
     buyTelescope.description =
-      "A Telescope allows you to buy more searching drones";
+      "A Telescope allows you to buy more searching Bees";
     this.searchX1.actions.push(buyTelescope);
     this.searchX1.limitStorage = buyTelescope;
     this.searchX1.prestigeLimit = AllSkillEffects.PLUS_SEARCH;
@@ -549,13 +549,13 @@ export class ResourceManager implements ISalvable {
     };
     buyStronghold.name = "Stronghold";
     buyStronghold.description =
-      "A Stronghold allows you to buy more warrior drones";
+      "A Stronghold allows you to buy more warrior Bees";
     this.warriorX1.actions.push(buyStronghold);
     this.warriorX1.limitStorage = buyStronghold;
     this.warriorX1.prestigeLimit = AllSkillEffects.PLUS_WARRIOR;
 
-    //  Drone
-    const buyDrone = new Action(
+    //  Bee
+    const buyBee = new Action(
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
@@ -563,21 +563,21 @@ export class ResourceManager implements ISalvable {
         new Price(this.habitableSpace, 1, MINE_EXP)
       ])
     );
-    buyDrone.afterBuy = () => {
-      this.drone.reloadLimit();
+    buyBee.afterBuy = () => {
+      this.Bee.reloadLimit();
     };
-    buyDrone.name = "Drone Depot";
-    buyDrone.description =
-      "Drone Depots allow you to store more robots components.";
-    this.drone.exponentialStorage = true;
-    this.drone.actions.push(buyDrone);
-    this.drone.limitStorage = buyDrone;
-    this.drone.reloadCustomLimit = (limit: Decimal) => {
+    buyBee.name = "Bee Depot";
+    buyBee.description =
+      "Bee Depots allow you to store more robots components.";
+    this.Bee.exponentialStorage = true;
+    this.Bee.actions.push(buyBee);
+    this.Bee.limitStorage = buyBee;
+    this.Bee.reloadCustomLimit = (limit: Decimal) => {
       return limit.plus(
         !this.tierGroups
           ? new Decimal(0)
           : this.tierGroups[1].unlockedResources
-              .filter(r => !r.isCapped && r !== this.drone && r.priority > 0)
+              .filter(r => !r.isCapped && r !== this.Bee && r.priority > 0)
               .map(r => r.limit.minus(r.quantity).times(r.standardPrice))
               .reduce((c, p) => c.plus(p), new Decimal(0))
       );
@@ -642,7 +642,7 @@ export class ResourceManager implements ISalvable {
       this.searchX1,
       this.searchProgress,
       this.warriorX1,
-      this.drone,
+      this.Bee,
       this.missile
     ];
 
@@ -665,8 +665,8 @@ export class ResourceManager implements ISalvable {
       this.searchX1,
       this.searchProgress,
       this.warriorX1,
-      this.drone,
-      this.droneFactory,
+      this.Bee,
+      this.BeeFactory,
       this.navalCap,
       this.inactiveDarkMatter,
       this.PolybeesM,
@@ -733,7 +733,7 @@ export class ResourceManager implements ISalvable {
           ResourceManager.getInstance().warriorX1.name +
           " are granting + " +
           MainService.formatPipe.transform(
-            FleetManager.getInstance().getNavalCapacityFromDrones(),
+            FleetManager.getInstance().getNavalCapacityFromBees(),
             true
           ) +
           " naval capacity",
@@ -940,9 +940,9 @@ export class ResourceManager implements ISalvable {
    * Deploy robots to jobs
    * Based on priority
    */
-  deployDrones() {
+  deployBees() {
     const jobs = this.tierGroups[1].unlockedResources.filter(
-      j => !j.isCapped && j !== this.drone
+      j => !j.isCapped && j !== this.Bee
     );
     jobs.forEach(j => {
       j.realPriority = j.limit
@@ -954,7 +954,7 @@ export class ResourceManager implements ISalvable {
       .map(j => j.realPriority)
       .reduce((p, c) => p.plus(c), new Decimal());
     jobs.sort((a, b) => b.realPriority.cmp(a.realPriority));
-    let toDeploy = this.drone.quantity;
+    let toDeploy = this.Bee.quantity;
     let n = 0;
     while (toDeploy.gte(0) && n < jobs.length) {
       const job = jobs[n];
@@ -970,7 +970,7 @@ export class ResourceManager implements ISalvable {
           job.quantity = job.quantity.plus(toAdd);
           const price = toAdd.times(job.standardPrice);
           toDeploy = toDeploy.minus(price);
-          this.drone.quantity = this.drone.quantity.minus(price);
+          this.Bee.quantity = this.Bee.quantity.minus(price);
         }
       }
       n++;
@@ -988,10 +988,10 @@ export class ResourceManager implements ISalvable {
         job.quantity = job.quantity.plus(toAdd);
         const price = toAdd.times(job.standardPrice);
         toDeploy = toDeploy.minus(price);
-        this.drone.quantity = this.drone.quantity.minus(price);
+        this.Bee.quantity = this.Bee.quantity.minus(price);
       }
     }
-    this.drone.reloadLimit();
+    this.Bee.reloadLimit();
   }
 
   //#region Save and load

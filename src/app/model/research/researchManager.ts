@@ -84,7 +84,7 @@ export class ResearchManager {
     resMan.computingX1.productionMultiplier.additiveBonus.push(
       new Bonus(this.computing, 0.1, true)
     );
-    resMan.droneFactory.productionMultiplier.additiveBonus.push(
+    resMan.BeeFactory.productionMultiplier.additiveBonus.push(
       new Bonus(this.massProduction, 0.2)
     );
 

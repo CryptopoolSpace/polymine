@@ -37,7 +37,7 @@ export class AllSkillEffects {
   static effectList = new Array<SkillEffect>();
 
   //#region start
-  static readonly DRONE_MULTI = new SkillEffect(9, "1", 3);
+  static readonly Bee_MULTI = new SkillEffect(9, "1", 3);
   static readonly DOUBLE_BATTLE_GAIN = new SkillEffect(14, "1", 5);
   static readonly FAST_COMBAT = new SkillEffect(10, "1", 1);
   //#endregion
@@ -133,16 +133,16 @@ export class AllSkillEffects {
       AllSkillEffects.MOD_WORKER,
       AllSkillEffects.MOD_SEARCH
     ];
-    AllSkillEffects.DRONE_MULTI.getDescription = (num = 1) => {
+    AllSkillEffects.Bee_MULTI.getDescription = (num = 1) => {
       return (
-        "Drones yield and consume " +
+        "Bees yield and consume " +
         MainService.formatPipe.transform(150 * num, true) +
         "% more resource"
       );
     };
-    AllSkillEffects.DRONE_MULTI.name = "Drone Prestige";
+    AllSkillEffects.Bee_MULTI.name = "Bee Prestige";
     resMan.warriorX1.productionMultiplier.multiplicativeBonus.push(
-      new Bonus(AllSkillEffects.DRONE_MULTI, 1.5)
+      new Bonus(AllSkillEffects.Bee_MULTI, 1.5)
     );
     for (let i = 0; i < 7; i++) {
       tier1[i].shape = resources[i].shape;
@@ -166,7 +166,7 @@ export class AllSkillEffects {
         new Bonus(tier1[i], 0.5, true)
       );
       workers[i].productionMultiplier.multiplicativeBonus.push(
-        new Bonus(AllSkillEffects.DRONE_MULTI, 1.5)
+        new Bonus(AllSkillEffects.Bee_MULTI, 1.5)
       );
 
       mods[i].getDescription = (num = 1) => {
@@ -275,11 +275,11 @@ export class AllSkillEffects {
         "+ " +
         MainService.formatPipe.transform(500 * num, true) +
         "% " +
-        resMan.droneFactory.name +
+        resMan.BeeFactory.name +
         " output"
       );
     };
-    ResourceManager.getInstance().droneFactory.productionMultiplier.multiplicativeBonus.push(
+    ResourceManager.getInstance().BeeFactory.productionMultiplier.multiplicativeBonus.push(
       new Bonus(AllSkillEffects.FACTORY_BONUS, 5, true)
     );
     AllSkillEffects.FACTORY_BONUS.name = "Robot Factory Prestige";
@@ -458,7 +458,7 @@ export class AllSkillEffects {
     //#endregion
 
     AllSkillEffects.effectList = [
-      AllSkillEffects.DRONE_MULTI,
+      AllSkillEffects.Bee_MULTI,
       AllSkillEffects.PLUS_Polybees_MINER,
       AllSkillEffects.PLUS_Nectar_MINER,
       AllSkillEffects.PLUS_ALLOY,

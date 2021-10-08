@@ -69,7 +69,7 @@ export class Resource extends AbstractUnlockable
   unlockedAutomators = new Array<Automator>();
   automators2 = new Array<Automator>();
   unlockedAutomators2 = new Array<Automator>();
-  automation1Name = "Drone Automation";
+  automation1Name = "Bee Automation";
   automation2Name = "Expansion Automation";
   modPrestige: SkillEffect;
 
@@ -159,8 +159,8 @@ export class Resource extends AbstractUnlockable
         ? this.workerPerMine.times(Decimal.pow(2, this.limitStorage.quantity))
         : this.limitStorage.quantity.plus(1).times(worker);
 
-      if (this.modStack && this.modStack.moreDrones) {
-        const modBonus = this.modStack.moreDrones.quantity
+      if (this.modStack && this.modStack.moreBees) {
+        const modBonus = this.modStack.moreBees.quantity
           .times(MOD_MORE)
           .plus(1);
         // console.log(modBonus.toNumber());

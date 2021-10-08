@@ -105,10 +105,10 @@ export class ResourceGroupComponent
     //     this.actions.push(this.buyAction);
     //   }
 
-    //   if (this.ms.game.resourceManager.drone.unlocked) {
-    //     this.mineAction = this.ms.game.resourceManager.drone.actions[0];
+    //   if (this.ms.game.resourceManager.Bee.unlocked) {
+    //     this.mineAction = this.ms.game.resourceManager.Bee.actions[0];
     //     this.actions.push(this.mineAction);
-    //     this.refundAction = this.ms.game.resourceManager.drone.actions[1];
+    //     this.refundAction = this.ms.game.resourceManager.Bee.actions[1];
     //     this.actions.push(this.refundAction);
     //   }
     //   return true;

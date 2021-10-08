@@ -368,10 +368,10 @@ export class EnemyManager implements ISalvable {
           gain = new Decimal(ROBOT_REWARD * this.currentEnemy.level).times(
             prestigeMulti
           );
-          resMan.drone.unlock();
-          resMan.drone.quantity = resMan.drone.quantity.plus(gain);
-          resMan.drone.quantity = resMan.drone.quantity.min(resMan.drone.limit);
-          this.addOrUpdateMessages(resMan.drone.name, gain);
+          resMan.Bee.unlock();
+          resMan.Bee.quantity = resMan.Bee.quantity.plus(gain);
+          resMan.Bee.quantity = resMan.Bee.quantity.min(resMan.Bee.limit);
+          this.addOrUpdateMessages(resMan.Bee.name, gain);
           break;
 
         case Reward.Alloy:
