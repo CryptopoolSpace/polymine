@@ -21,6 +21,6 @@ export const Classes: ShipClass[] = [
     "Defender",
     "Defender +50% armor and shield, draws 80% of enemy fire"
   ),
-  new ShipClass("4", "Technician", "Technician"),
+  new ShipClass("4", "Builder Bee", "Builder Bee"),
   new ShipClass("5", "Supply", "Supply")
 ];

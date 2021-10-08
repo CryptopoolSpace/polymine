@@ -433,7 +433,7 @@ export class ResourceManager implements ISalvable {
     };
     buyHoneyPlant.name = "Honey Plant";
     buyHoneyPlant.description =
-      "An Honey Plant allows you to buy more technicians";
+      "An Honey Plant allows you to buy more Builder Bees";
     this.HoneyX1.actions.push(buyHoneyPlant);
     this.HoneyX1.limitStorage = buyHoneyPlant;
     this.HoneyX1.prestigeLimit = AllSkillEffects.PLUS_Honey;

@@ -32,7 +32,7 @@ export class ResearchManager {
   deflector: Research;
   jammer: Research;
   shieldCharger: Research;
-  technician: Research;
+  Builder Bee: Research;
   massProduction: Research;
   mTheory: Research;
   //#region Ship Types
@@ -73,7 +73,7 @@ export class ResearchManager {
     this.missile = this.researches.find(r => r.id === "i");
     this.classes = this.researches.find(r => r.id === "cla");
     this.defender = this.researches.find(r => r.id === "cl3");
-    this.technician = this.researches.find(r => r.id === "cl4");
+    this.Builder Bee = this.researches.find(r => r.id === "cl4");
     this.massProduction = this.researches.find(r => r.id === "D1");
     this.mTheory = this.researches.find(r => r.id === "Mt");
 
@@ -200,7 +200,7 @@ export class ResearchManager {
     moduleResearches = moduleResearches.filter(
       r => r !== this.deflector && r !== this.jammer && r !== this.shieldCharger
     );
-    this.technician.toUnlock.push(this.shieldCharger);
+    this.Builder Bee.toUnlock.push(this.shieldCharger);
 
     //  Add other modules to corvette research
     this.corvette.toUnlock = this.corvette.toUnlock.concat(moduleResearches);

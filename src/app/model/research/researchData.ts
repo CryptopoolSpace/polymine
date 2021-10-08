@@ -213,10 +213,10 @@ export const ResearchData: IResearchData[] = [
   },
   {
     id: "cl4",
-    name: "Technician",
+    name: "Builder Bee",
     shape: "scout",
     price: 1e14,
-    description: "Unlock Technician",
+    description: "Unlock Builder Bee",
     classesToUnlock: ["4"]
   },
   // {

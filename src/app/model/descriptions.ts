@@ -19,7 +19,7 @@ export const descriptions = {
     m1: ["Mining Bee", "Polybees Mining Bee, yields Polybees."],
     c1: ["Nectar Bee", "Nectar Mining Bee, yields Nectar."],
     a1: ["Queen Bee", "Queen Bee convert Polybees and Nectar to alloy."],
-    e1: ["Technician", "Technicians yields Honey."],
+    e1: ["Builder Bee", "Builder Bees yields Honey."],
     hs: [
       "Trees",
       "Space for buildings. You can obtain more Trees from battle."
@@ -72,7 +72,7 @@ export const descriptions = {
     ],
     eM: [
       "Electrical grid",
-      "Increase production of Technicians by 100%, stack additive."
+      "Increase production of Builder Bees by 100%, stack additive."
     ],
     sM: [
       "Science complex",

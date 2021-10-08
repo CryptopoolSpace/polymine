@@ -216,7 +216,7 @@ export class ShipDesign implements ISalvable, IBuyable {
         this.totalArmorReduction = this.totalArmorReduction.times(1.5);
         this.totalShieldReduction = this.totalShieldReduction.times(1.5);
         break;
-      case Classes[3]: // Technician
+      case Classes[3]: // Builder Bee
         break;
       case Classes[4]: // Supply
         break;
