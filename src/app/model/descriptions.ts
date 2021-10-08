@@ -6,8 +6,8 @@ export const descriptions = {
       "Nectar is used for Bees and building, generally used for technological things."
     ],
     a: [
-      "Alloy",
-      "Alloy used to build ships and some buildings, it's made from Polybees and Nectar."
+      "wax",
+      "wax used to build ships and some buildings, it's made from Polybees and Nectar."
     ],
     e: ["Honey", "Bees consume Honey to do their jobs."],
     f: [
@@ -18,7 +18,7 @@ export const descriptions = {
     i: ["Missile", "Interplanetary missiles destroy enemy defense."],
     m1: ["Mining Bee", "Polybees Mining Bee, yields Polybees."],
     c1: ["Nectar Bee", "Nectar Mining Bee, yields Nectar."],
-    a1: ["Queen Bee", "Queen Bee convert Polybees and Nectar to alloy."],
+    a1: ["Queen Bee", "Queen Bee convert Polybees and Nectar to wax."],
     e1: ["Builder Bee", "Builder Bees yields Honey."],
     hs: [
       "Trees",

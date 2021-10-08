@@ -34,7 +34,7 @@ export class ResourceManager implements ISalvable {
   //#region Resources
   Polybees: Resource;
   Nectar: Resource;
-  alloy: Resource;
+  wax: Resource;
   Honey: Resource;
   computing: Resource;
   habitableSpace: Resource;
@@ -48,7 +48,7 @@ export class ResourceManager implements ISalvable {
 
   PolybeesX1: Resource;
   NectarX1: Resource;
-  alloyX1: Resource;
+  waxX1: Resource;
   HoneyX1: Resource;
   computingX1: Resource;
   shipyardX1: Resource;
@@ -98,8 +98,8 @@ export class ResourceManager implements ISalvable {
     this.Nectar.shape = "Nectar";
     this.Nectar.unlocked = true;
 
-    this.alloy = new Resource("a");
-    this.alloy.shape = "alloy";
+    this.wax = new Resource("a");
+    this.wax.shape = "wax";
 
     this.Honey = new Resource("e");
     this.Honey.shape = "Honey";
@@ -151,12 +151,12 @@ export class ResourceManager implements ISalvable {
     this.Nectar.addGenerator(this.NectarX1, 0.7);
     this.Honey.addGenerator(this.NectarX1, -1);
 
-    //      Alloy
-    this.alloyX1 = new Resource("a1");
-    this.alloy.addGenerator(this.alloyX1);
-    this.Polybees.addGenerator(this.alloyX1, -3);
-    this.Nectar.addGenerator(this.alloyX1, -2);
-    this.Honey.addGenerator(this.alloyX1, -1);
+    //      wax
+    this.waxX1 = new Resource("a1");
+    this.wax.addGenerator(this.waxX1);
+    this.Polybees.addGenerator(this.waxX1, -3);
+    this.Nectar.addGenerator(this.waxX1, -2);
+    this.Honey.addGenerator(this.waxX1, -1);
 
     //      Honey
     this.Honey.unlocked = true;
@@ -174,7 +174,7 @@ export class ResourceManager implements ISalvable {
     //      Shipyard
     this.shipyardX1 = new Resource("S1");
     this.shipyardProgress.addGenerator(this.shipyardX1);
-    this.alloy.addGenerator(this.shipyardX1, -1);
+    this.wax.addGenerator(this.shipyardX1, -1);
     this.Honey.addGenerator(this.shipyardX1, -1);
 
     //      Search
@@ -195,13 +195,13 @@ export class ResourceManager implements ISalvable {
     this.Bee.workerPerMine = new Decimal(50);
     this.BeeFactory = new Resource("F");
     this.Bee.addGenerator(this.BeeFactory, 0.01);
-    this.alloy.addGenerator(this.BeeFactory, -100);
+    this.wax.addGenerator(this.BeeFactory, -100);
     this.Honey.addGenerator(this.BeeFactory, -20);
 
     //      Missile
     this.missileX1 = new Resource("i1");
     this.missile.addGenerator(this.missileX1, 0.01);
-    this.alloy.addGenerator(this.missileX1, -1);
+    this.wax.addGenerator(this.missileX1, -1);
     this.Honey.addGenerator(this.missileX1, -0.5);
 
     //      Space
@@ -227,7 +227,7 @@ export class ResourceManager implements ISalvable {
       this.Nectar,
       this.Honey,
       this.computing,
-      this.alloy,
+      this.wax,
       this.shipyardProgress,
       this.searchProgress,
       this.Bee,
@@ -239,7 +239,7 @@ export class ResourceManager implements ISalvable {
       this.NectarX1,
       this.HoneyX1,
       this.computingX1,
-      this.alloyX1,
+      this.waxX1,
       this.shipyardX1,
       this.warriorX1,
       this.searchX1
@@ -270,7 +270,7 @@ export class ResourceManager implements ISalvable {
     this.PolybeesX1.buyAction.afterBuy = this.unlockComputing.bind(this);
     this.NectarX1.buyAction.afterBuy = this.unlockComputing.bind(this);
 
-    this.alloyX1.generateBuyAction(
+    this.waxX1.generateBuyAction(
       new MultiPrice([new Price(this.Polybees, 80), new Price(this.Nectar, 60)])
     );
     this.HoneyX1.generateBuyAction(
@@ -281,16 +281,16 @@ export class ResourceManager implements ISalvable {
     );
     this.shipyardX1.generateBuyAction(
       new MultiPrice([
-        new Price(this.alloy, 50),
+        new Price(this.wax, 50),
         new Price(this.Polybees, 100),
         new Price(this.Nectar, 25)
       ])
     );
     this.searchX1.generateBuyAction(
-      new MultiPrice([new Price(this.alloy, 100), new Price(this.Nectar, 200)])
+      new MultiPrice([new Price(this.wax, 100), new Price(this.Nectar, 200)])
     );
     this.warriorX1.generateBuyAction(
-      new MultiPrice([new Price(this.alloy, 200)])
+      new MultiPrice([new Price(this.wax, 200)])
     );
 
     //
@@ -298,19 +298,19 @@ export class ResourceManager implements ISalvable {
     //
     this.BeeFactory.generateBuyAction(
       new MultiPrice([
-        new Price(this.alloy, 1e3, BUILDING_EXP),
+        new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.habitableSpace, 1, BUILDING_EXP)
       ])
     );
     this.missileX1.generateBuyAction(
       new MultiPrice([
-        new Price(this.alloy, 1e3, BUILDING_EXP),
+        new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.habitableSpace, 1, BUILDING_EXP)
       ])
     );
     this.PolybeesM.generateBuyAction(
       new MultiPrice([
-        new Price(this.alloy, 1e3, BUILDING_EXP),
+        new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.Nectar, 1e4, BUILDING_EXP),
         new Price(this.habitableSpace, 10, BUILDING_EXP)
       ])
@@ -320,7 +320,7 @@ export class ResourceManager implements ISalvable {
     );
     this.NectarM.generateBuyAction(
       new MultiPrice([
-        new Price(this.alloy, 1e3, BUILDING_EXP),
+        new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.Nectar, 1e4, BUILDING_EXP),
         new Price(this.habitableSpace, 10, BUILDING_EXP)
       ])
@@ -330,7 +330,7 @@ export class ResourceManager implements ISalvable {
     );
     this.HoneyM.generateBuyAction(
       new MultiPrice([
-        new Price(this.alloy, 1e3, BUILDING_EXP),
+        new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.Nectar, 1e4, BUILDING_EXP),
         new Price(this.habitableSpace, 10, BUILDING_EXP)
       ])
@@ -340,14 +340,14 @@ export class ResourceManager implements ISalvable {
     );
     this.scienceM.generateBuyAction(
       new MultiPrice([
-        new Price(this.alloy, 1e3, BUILDING_EXP),
+        new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.Nectar, 1e4, BUILDING_EXP),
         new Price(this.habitableSpace, 10, BUILDING_EXP)
       ])
     );
     this.computingM.generateBuyAction(
       new MultiPrice([
-        new Price(this.alloy, 1e3, BUILDING_EXP),
+        new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.Nectar, 1e4, BUILDING_EXP),
         new Price(this.habitableSpace, 10, BUILDING_EXP)
       ])
@@ -367,7 +367,7 @@ export class ResourceManager implements ISalvable {
     ].forEach(s => {
       s.generateBuyAction(
         new MultiPrice([
-          new Price(this.alloy, CIVILIAN_SHIPS_PRICE, CIVILIAN_SHIPS_EXP)
+          new Price(this.wax, CIVILIAN_SHIPS_PRICE, CIVILIAN_SHIPS_EXP)
         ])
       );
       this.navalCap.addGenerator(s, CIVILIAN_SHIPS_NAVCAP);
@@ -457,7 +457,7 @@ export class ResourceManager implements ISalvable {
     this.computingX1.limitStorage = buySuperComputer;
     this.computingX1.prestigeLimit = AllSkillEffects.PLUS_CPU;
 
-    //  Alloy Queen
+    //  wax Queen
     const buyQueen = new Action(
       "L",
       new MultiPrice([
@@ -467,14 +467,14 @@ export class ResourceManager implements ISalvable {
       ])
     );
     buyQueen.afterBuy = () => {
-      this.alloyX1.reloadLimit();
+      this.waxX1.reloadLimit();
     };
-    buyQueen.name = "Alloy Queen";
+    buyQueen.name = "wax Queen";
     buyQueen.description =
-      "An Alloy Queen allows you to buy more Queen Bees";
-    this.alloyX1.actions.push(buyQueen);
-    this.alloyX1.limitStorage = buyQueen;
-    this.alloyX1.prestigeLimit = AllSkillEffects.PLUS_ALLOY;
+      "An wax Queen allows you to buy more Queen Bees";
+    this.waxX1.actions.push(buyQueen);
+    this.waxX1.limitStorage = buyQueen;
+    this.waxX1.prestigeLimit = AllSkillEffects.PLUS_wax;
 
     //  Shipyard
     const buyShipyard = new Action(
@@ -630,10 +630,10 @@ export class ResourceManager implements ISalvable {
     this.limited = [
       // this.Polybees,
       // this.Nectar,
-      // this.alloy,
+      // this.wax,
       this.PolybeesX1,
       this.NectarX1,
-      this.alloyX1,
+      this.waxX1,
       this.HoneyX1,
       this.computingX1,
       this.Honey,
@@ -649,13 +649,13 @@ export class ResourceManager implements ISalvable {
     this.allResources = [
       this.Polybees,
       this.Nectar,
-      this.alloy,
+      this.wax,
       this.Honey,
       this.computing,
       this.PolybeesX1,
       this.NectarX1,
       this.HoneyX1,
-      this.alloyX1,
+      this.waxX1,
       this.computingX1,
       this.habitableSpace,
       this.miningDistrict,
@@ -786,7 +786,7 @@ export class ResourceManager implements ISalvable {
     this.matNav = [
       this.Polybees,
       this.Nectar,
-      this.alloy,
+      this.wax,
       this.Honey,
       this.computing
     ].filter(m => m.unlocked);

@@ -29,7 +29,7 @@ export interface IModuleData {
   id: string;
   name: string;
   sizes: Sizes[];
-  alloyPrice: DecimalSource;
+  waxPrice: DecimalSource;
   HoneyBalance?: DecimalSource;
   damage?: DecimalSource;
   armorPercent?: number;
@@ -56,7 +56,7 @@ export class Module extends AbstractUnlockable {
     id: string,
     name: string,
     public sizes: Sizes[] = [Sizes.Small],
-    public alloyPrice: Decimal = new Decimal(0),
+    public waxPrice: Decimal = new Decimal(0),
     public HoneyBalance: Decimal = new Decimal(0),
     public damage: Decimal = new Decimal(0),
     public armorPercent = 0,
@@ -78,7 +78,7 @@ export class Module extends AbstractUnlockable {
 
   static fromData(data: IModuleData): Module {
     const ret = new Module(data.id, data.name, data.sizes);
-    if (data.alloyPrice) ret.alloyPrice = new Decimal(data.alloyPrice);
+    if (data.waxPrice) ret.waxPrice = new Decimal(data.waxPrice);
     if (data.HoneyBalance) ret.HoneyBalance = new Decimal(data.HoneyBalance);
     if (data.damage) ret.damage = new Decimal(data.damage);
     if (data.shield) ret.shield = new Decimal(data.shield);

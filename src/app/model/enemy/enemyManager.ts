@@ -28,7 +28,7 @@ const DARK_MATTER_START_LEVEL = 2;
 const DARK_MATTER_MULTI = 3;
 const Polybees_REWARD = 500;
 const Nectar_REWARD = 350;
-const ALLOY_REWARD = 250;
+const wax_REWARD = 250;
 const RESEARCH_REWARD = 2e3;
 const BeesBot_REWARD = 0.5;
 const SHIPYARD_REWARD = 200;
@@ -41,7 +41,7 @@ const RANDOM_REWARDS = [
   Reward.PolybeesMine,
   Reward.NectarMine,
   Reward.BeesBot,
-  Reward.Alloy,
+  Reward.wax,
   Reward.Enemy
   // Reward.Shipyard
 ];
@@ -374,13 +374,13 @@ export class EnemyManager implements ISalvable {
           this.addOrUpdateMessages(resMan.Bee.name, gain);
           break;
 
-        case Reward.Alloy:
-          gain = new Decimal(ALLOY_REWARD * this.currentEnemy.level).times(
+        case Reward.wax:
+          gain = new Decimal(wax_REWARD * this.currentEnemy.level).times(
             prestigeMulti
           );
-          resMan.alloy.quantity = resMan.alloy.quantity.plus(gain);
-          resMan.alloy.quantity = resMan.alloy.quantity.min(resMan.alloy.limit);
-          this.addOrUpdateMessages(resMan.alloy.name, gain);
+          resMan.wax.quantity = resMan.wax.quantity.plus(gain);
+          resMan.wax.quantity = resMan.wax.quantity.min(resMan.wax.limit);
+          this.addOrUpdateMessages(resMan.wax.name, gain);
           break;
 
         case Reward.Enemy:

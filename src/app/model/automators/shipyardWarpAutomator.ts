@@ -15,7 +15,7 @@ export class ShipyardWarp extends Automator {
     return (
       Shipyard.getInstance().totalTime > 1000 &&
       Shipyard.getInstance().totalTime < Number.POSITIVE_INFINITY &&
-      ResourceManager.getInstance().alloy.quantity.gt(1)
+      ResourceManager.getInstance().wax.quantity.gt(1)
     );
   }
   doAction(): boolean {

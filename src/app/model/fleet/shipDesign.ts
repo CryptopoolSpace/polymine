@@ -197,7 +197,7 @@ export class ShipDesign implements ISalvable, IBuyable {
           this.totalTilePerSec + w.module.tilePerSec * bonus * sizeFactor;
 
         this.price = this.price.plus(
-          w.module.alloyPrice.times(1 + (w.size - 1) * 2).times(multiPrice)
+          w.module.waxPrice.times(1 + (w.size - 1) * 2).times(multiPrice)
         );
 
         this.explosionChance +=

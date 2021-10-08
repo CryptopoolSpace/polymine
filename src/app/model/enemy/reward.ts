@@ -3,7 +3,7 @@ export enum Reward {
   PolybeesMine,
   NectarMine,
   BeesBot,
-  Alloy,
+  wax,
   Enemy,
   Shipyard
 }

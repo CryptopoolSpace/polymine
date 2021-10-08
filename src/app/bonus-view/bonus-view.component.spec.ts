@@ -24,7 +24,7 @@ describe("BonusViewComponent", () => {
     fixture = TestBed.createComponent(BonusViewComponent);
     component = fixture.componentInstance;
     const Miners = getMiners();
-    component.production = Miners.resourceManager.alloyX1.products[0];
+    component.production = Miners.resourceManager.waxX1.products[0];
     fixture.detectChanges();
   });
 
