@@ -37,7 +37,7 @@ const SEARCH_REWARD = 300;
 export const TERRAFORMER_MULTI = 0.01;
 
 const RANDOM_REWARDS = [
-  Reward.HabitableSpace,
+  Reward.HabitableBee Hive,
   Reward.PolybeesMine,
   Reward.NectarMine,
   Reward.BeesBot,
@@ -295,7 +295,7 @@ export class EnemyManager implements ISalvable {
     const resMan = ResourceManager.getInstance();
     let gain = new Decimal();
 
-    const addSpace = !!reward;
+    const addBee Hive = !!reward;
     if (!reward) {
       reward = sample(RANDOM_REWARDS);
       if (
@@ -319,12 +319,12 @@ export class EnemyManager implements ISalvable {
         )
         .times(AllSkillEffects.DOUBLE_DISTRICTS.numOwned + 1);
       switch (reward) {
-        case Reward.HabitableSpace:
-          if (addSpace) {
-            resMan.habitableSpace.quantity = resMan.habitableSpace.quantity.plus(
+        case Reward.HabitableBee Hive:
+          if (addBee Hive) {
+            resMan.habitableBee Hive.quantity = resMan.habitableBee Hive.quantity.plus(
               gainDistrict
             );
-            this.addOrUpdateMessages(resMan.habitableSpace.name, gainDistrict);
+            this.addOrUpdateMessages(resMan.habitableBee Hive.name, gainDistrict);
           }
           gain = new Decimal(RESEARCH_REWARD * this.currentEnemy.level).times(
             prestigeMulti
@@ -333,7 +333,7 @@ export class EnemyManager implements ISalvable {
           break;
 
         case Reward.PolybeesMine:
-          if (addSpace) {
+          if (addBee Hive) {
             resMan.miningDistrict.quantity = resMan.miningDistrict.quantity.plus(
               gainDistrict
             );
@@ -348,7 +348,7 @@ export class EnemyManager implements ISalvable {
           break;
 
         case Reward.NectarMine:
-          if (addSpace) {
+          if (addBee Hive) {
             resMan.NectarDistrict.quantity = resMan.NectarDistrict.quantity.plus(
               gainDistrict
             );
@@ -438,8 +438,8 @@ export class EnemyManager implements ISalvable {
     searchJob.level = level;
     searchJob.morePolybees = this.morePolybees;
     searchJob.moreNectar = this.moreNectar;
-    searchJob.moreHabitableSpace = this.moreHabitable;
-    searchJob.moreHabitableSpace2 = this.moreHabitable2;
+    searchJob.moreHabitableBee Hive = this.moreHabitable;
+    searchJob.moreHabitableBee Hive2 = this.moreHabitable2;
     searchJob.randomized = this.randomized;
     searchJob.moreBeesBot = this.moreBeesBot;
     searchJob.total = this.getRequiredSearch(level);

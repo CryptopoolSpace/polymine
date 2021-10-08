@@ -63,7 +63,7 @@ export class Miners {
     this.fleetManager.reload();
     this.resourceManager.Polybees.quantity = new Decimal(200);
     this.resourceManager.Nectar.quantity = new Decimal(120);
-    this.resourceManager.habitableSpace.quantity = new Decimal(15);
+    this.resourceManager.habitableBee Hive.quantity = new Decimal(15);
     this.resourceManager.miningDistrict.quantity = new Decimal(2);
     this.resourceManager.NectarDistrict.quantity = new Decimal(2);
     // this.darkMatterManager.darkMatter.quantity = new Decimal(1e10);
@@ -308,7 +308,7 @@ export class Miners {
 
     this.researchManager.fixUnlocks();
 
-    // this.resourceManager.habitableSpace.quantity = new Decimal(100);
+    // this.resourceManager.habitableBee Hive.quantity = new Decimal(100);
     // this.resourceManager.miningDistrict.quantity = new Decimal(100);
     // this.resourceManager.NectarDistrict.quantity = new Decimal(100);
     // this.darkMatterManager.darkMatter.quantity = new Decimal(1e4);

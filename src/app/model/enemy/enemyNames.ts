@@ -1,7 +1,7 @@
 export const enemyNames = [
   "Trimps",
   "Paperclips",
-  "Space", // Company
+  "Bee Hive", // Company
   "Shark", // Miners
   "Printer",
   "Ant",

@@ -2,7 +2,7 @@ import { AppPage } from "./app.po";
 // tslint:disable-next-line:no-implicit-dependencies
 import { browser, logging } from "protractor";
 
-describe("workspace-project App", () => {
+describe("workBee Hive-project App", () => {
   let page: AppPage;
 
   beforeEach(() => {

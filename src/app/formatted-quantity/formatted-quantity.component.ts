@@ -18,7 +18,7 @@ import { Subscription } from "rxjs";
 export class FormattedQuantityComponent implements OnInit, OnDestroy {
   @Input() quantity: Decimal;
   @Input() integer = false;
-  @Input() monospace = true;
+  @Input() monoBee Hive = true;
   private subscriptions: Subscription[] = [];
 
   constructor(public os: OptionsService, private cd: ChangeDetectorRef) {}

@@ -16,8 +16,8 @@ export class SearchJob implements IJob {
 
   morePolybees = false;
   moreNectar = false;
-  moreHabitableSpace = false;
-  moreHabitableSpace2 = false;
+  moreHabitableBee Hive = false;
+  moreHabitableBee Hive2 = false;
   randomized = false;
   moreBeesBot = false;
   timeToComplete = Number.POSITIVE_INFINITY;
@@ -38,8 +38,8 @@ export class SearchJob implements IJob {
 
     if ("mm" in data) job.morePolybees = data.mm;
     if ("mc" in data) job.moreNectar = data.mc;
-    if ("mh" in data) job.moreHabitableSpace = data.mh;
-    if ("mh2" in data) job.moreHabitableSpace2 = data.mh2;
+    if ("mh" in data) job.moreHabitableBee Hive = data.mh;
+    if ("mh2" in data) job.moreHabitableBee Hive2 = data.mh2;
     if ("ran" in data) job.randomized = data.ran;
     if ("mr" in data) job.moreBeesBot = data.mr;
 
@@ -71,7 +71,7 @@ export class SearchJob implements IJob {
       (this.morePolybees ? 1 : 0) +
       (this.moreNectar ? 1 : 0) +
       (this.moreBeesBot ? 1 : 0) +
-      (this.moreHabitableSpace || this.moreHabitableSpace2 ? 1 : 0);
+      (this.moreHabitableBee Hive || this.moreHabitableBee Hive2 ? 1 : 0);
     switch (bonusCount) {
       case 0:
         this.name = "Standard search";
@@ -81,7 +81,7 @@ export class SearchJob implements IJob {
           ? "Polybees search"
           : this.moreNectar
           ? "Nectar search"
-          : this.moreHabitableSpace
+          : this.moreHabitableBee Hive
           ? "Trees search"
           : this.moreBeesBot
           ? "BeesBot search"
@@ -93,17 +93,17 @@ export class SearchJob implements IJob {
         this.name += this.moreNectar ? "Nectar " : "";
         this.name +=
           this.moreNectar &&
-          (this.moreHabitableSpace ||
-            this.moreHabitableSpace2 ||
+          (this.moreHabitableBee Hive ||
+            this.moreHabitableBee Hive2 ||
             this.moreBeesBot)
             ? "& "
             : "";
         this.name +=
-          this.moreHabitableSpace || this.moreHabitableSpace2
+          this.moreHabitableBee Hive || this.moreHabitableBee Hive2
             ? "Trees "
             : "";
         this.name +=
-          (this.moreHabitableSpace || this.moreHabitableSpace2) &&
+          (this.moreHabitableBee Hive || this.moreHabitableBee Hive2) &&
           this.moreBeesBot
             ? "& "
             : "";
@@ -119,8 +119,8 @@ export class SearchJob implements IJob {
       "Level " + EnemyManager.romanPipe.transform(this.level) + " ";
     if (this.morePolybees) this.description += "More Polybeess ";
     if (this.moreNectar) this.description += "More Nectars ";
-    if (this.moreHabitableSpace) this.description += "More Space ";
-    if (this.moreHabitableSpace2) this.description += "Even More Space ";
+    if (this.moreHabitableBee Hive) this.description += "More Bee Hive ";
+    if (this.moreHabitableBee Hive2) this.description += "Even More Bee Hive ";
     if (this.moreBeesBot) this.description += "More BeesBots ";
     if (this.randomized) this.description += "Randomized ";
   }
@@ -169,7 +169,7 @@ export class SearchJob implements IJob {
     data.l = this.level;
     if (this.morePolybees) data.mm = this.morePolybees;
     if (this.moreNectar) data.mc = this.moreNectar;
-    if (this.moreHabitableSpace2) data.mh2 = this.moreHabitableSpace2;
+    if (this.moreHabitableBee Hive2) data.mh2 = this.moreHabitableBee Hive2;
     if (this.moreBeesBot) data.mr = this.moreBeesBot;
     return data;
   }

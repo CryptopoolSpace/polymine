@@ -24,7 +24,7 @@ export class RefundAction extends Action {
     // console.log(toRefund.toNumber());
     // console.log(owned.toNumber());
 
-    ResourceManager.getInstance().habitableSpace.quantity = ResourceManager.getInstance().habitableSpace.quantity.plus(
+    ResourceManager.getInstance().habitableBee Hive.quantity = ResourceManager.getInstance().habitableBee Hive.quantity.plus(
       toRefund
     );
     if (this.actionToRefund !== this.multiPrice.prices[0].spendable) {

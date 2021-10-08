@@ -99,7 +99,7 @@ export class Resource extends AbstractUnlockable
       if (
         a instanceof Action &&
         a.multiPrice.prices.findIndex(
-          p => p.spendable === ResourceManager.getInstance().habitableSpace
+          p => p.spendable === ResourceManager.getInstance().habitableBee Hive
         ) > -1
       ) {
         const toRefund = a instanceof BuyAction ? a.buyable : a;
@@ -111,7 +111,7 @@ export class Resource extends AbstractUnlockable
 
           this.refundAction.actionToRefund = a;
           const price = a.multiPrice.prices.find(
-            p => p.spendable === ResourceManager.getInstance().habitableSpace
+            p => p.spendable === ResourceManager.getInstance().habitableBee Hive
           );
           this.refundAction.growRate = price.growRate;
           this.refundAction.basePrice = price.cost;

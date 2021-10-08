@@ -42,7 +42,7 @@
     <div *ngIf="res?.products.length > 0 && res.id !== 'e1'">
       <h6>
         Operativity:
-        <span class="monospace"> {{ res.operativity }}</span> %
+        <span class="monoBee Hive"> {{ res.operativity }}</span> %
       </h6>
 
       <input
@@ -59,7 +59,7 @@
     <div *ngIf="res.showPriority && ms.Miners.resourceManager.Bee.unlocked">
       <h6 role="tooltip" aria-haspopup="true" class="tooltip tooltip-lg">
         BeesBot Priority:
-        <span class="monospace"> {{ res.priority }}</span> %
+        <span class="monoBee Hive"> {{ res.priority }}</span> %
 
         <span class="tooltip-content"
           >Priority is calculated as "missing Bees" * "priority slider

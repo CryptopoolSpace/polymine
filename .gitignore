@@ -20,7 +20,7 @@ speed-measure-plugin.json
 .c9/
 *.launch
 .settings/
-*.sublime-workspace
+*.sublime-workBee Hive
 
 # IDE - VSCode
 .vscode/*

@@ -96,7 +96,7 @@ export class Zone implements ISalvable {
   setShape() {
     if (!this.reward) return false;
     switch (this.reward) {
-      case Reward.HabitableSpace:
+      case Reward.HabitableBee Hive:
         this.shape = "world";
         break;
       case Reward.PolybeesMine:

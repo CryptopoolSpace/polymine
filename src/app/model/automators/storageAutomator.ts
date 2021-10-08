@@ -18,7 +18,7 @@ export class StorageAutomator extends Automator {
   doAction(): boolean {
     const resMan = ResourceManager.getInstance();
     const maxBuy = this.Crypto.actions[0].multiPrice.prices
-      .find(p => p.spendable === resMan.habitableSpace)
+      .find(p => p.spendable === resMan.habitableBee Hive)
       .getMaxBuy(this.Crypto.actions[0].quantity, this.resourcePercentToUse);
 
     return maxBuy.lt(1) ? false : this.Crypto.actions[0].buy(new Decimal(1));

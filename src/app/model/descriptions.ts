@@ -22,15 +22,15 @@ export const descriptions = {
     e1: ["Builder Bee", "Builder Bees yields Honey."],
     hs: [
       "Trees",
-      "Space for buildings. You can obtain more Trees from battle."
+      "Bee Hive for buildings. You can obtain more Trees from battle."
     ],
     md: [
       "Mining District",
-      "Space for Polybees mines. You can obtain more Mining District from battle."
+      "Bee Hive for Polybees mines. You can obtain more Mining District from battle."
     ],
     cd: [
       "Nectar District",
-      "Space for Nectar mines. You can obtain more Nectar District from battle."
+      "Bee Hive for Nectar mines. You can obtain more Nectar District from battle."
     ],
     f1: ["Computing Unit", ""],
     N: ["Naval Capacity", ""],

@@ -37,7 +37,7 @@ export class ResourceManager implements ISalvable {
   wax: Resource;
   Honey: Resource;
   computing: Resource;
-  habitableSpace: Resource;
+  habitableBee Hive: Resource;
   miningDistrict: Resource;
   NectarDistrict: Resource;
   BeeFactory: Resource;
@@ -204,15 +204,15 @@ export class ResourceManager implements ISalvable {
     this.wax.addGenerator(this.missileX1, -1);
     this.Honey.addGenerator(this.missileX1, -0.5);
 
-    //      Space
-    this.habitableSpace = new Resource("hs");
-    this.habitableSpace.shape = "world";
+    //      Bee Hive
+    this.habitableBee Hive = new Resource("hs");
+    this.habitableBee Hive.shape = "world";
     this.miningDistrict = new Resource("md");
     this.miningDistrict.shape = "miningD";
     this.NectarDistrict = new Resource("cd");
     this.NectarDistrict.shape = "NectarD";
     this.districts = [
-      this.habitableSpace,
+      this.habitableBee Hive,
       this.miningDistrict,
       this.NectarDistrict
     ];
@@ -299,20 +299,20 @@ export class ResourceManager implements ISalvable {
     this.BeeFactory.generateBuyAction(
       new MultiPrice([
         new Price(this.wax, 1e3, BUILDING_EXP),
-        new Price(this.habitableSpace, 1, BUILDING_EXP)
+        new Price(this.habitableBee Hive, 1, BUILDING_EXP)
       ])
     );
     this.missileX1.generateBuyAction(
       new MultiPrice([
         new Price(this.wax, 1e3, BUILDING_EXP),
-        new Price(this.habitableSpace, 1, BUILDING_EXP)
+        new Price(this.habitableBee Hive, 1, BUILDING_EXP)
       ])
     );
     this.PolybeesM.generateBuyAction(
       new MultiPrice([
         new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.Nectar, 1e4, BUILDING_EXP),
-        new Price(this.habitableSpace, 10, BUILDING_EXP)
+        new Price(this.habitableBee Hive, 10, BUILDING_EXP)
       ])
     );
     this.PolybeesX1.productionMultiplier.multiplicativeBonus.push(
@@ -322,7 +322,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.Nectar, 1e4, BUILDING_EXP),
-        new Price(this.habitableSpace, 10, BUILDING_EXP)
+        new Price(this.habitableBee Hive, 10, BUILDING_EXP)
       ])
     );
     this.NectarX1.productionMultiplier.multiplicativeBonus.push(
@@ -332,7 +332,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.Nectar, 1e4, BUILDING_EXP),
-        new Price(this.habitableSpace, 10, BUILDING_EXP)
+        new Price(this.habitableBee Hive, 10, BUILDING_EXP)
       ])
     );
     this.HoneyX1.productionMultiplier.multiplicativeBonus.push(
@@ -342,14 +342,14 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.Nectar, 1e4, BUILDING_EXP),
-        new Price(this.habitableSpace, 10, BUILDING_EXP)
+        new Price(this.habitableBee Hive, 10, BUILDING_EXP)
       ])
     );
     this.computingM.generateBuyAction(
       new MultiPrice([
         new Price(this.wax, 1e3, BUILDING_EXP),
         new Price(this.Nectar, 1e4, BUILDING_EXP),
-        new Price(this.habitableSpace, 10, BUILDING_EXP)
+        new Price(this.habitableBee Hive, 10, BUILDING_EXP)
       ])
     );
     this.computingX1.productionMultiplier.multiplicativeBonus.push(
@@ -425,7 +425,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.Polybees, 1500, MINE_EXP),
         new Price(this.Nectar, 1000, MINE_EXP),
-        new Price(this.habitableSpace, 1, MINE_EXP)
+        new Price(this.habitableBee Hive, 1, MINE_EXP)
       ])
     );
     buyHoneyPlant.afterBuy = () => {
@@ -444,7 +444,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.Polybees, 1500, MINE_EXP),
         new Price(this.Nectar, 1000, MINE_EXP),
-        new Price(this.habitableSpace, 1, MINE_EXP)
+        new Price(this.habitableBee Hive, 1, MINE_EXP)
       ])
     );
     buySuperComputer.afterBuy = () => {
@@ -463,7 +463,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
         new Price(this.Nectar, 1000, MINE_EXP),
-        new Price(this.habitableSpace, 1, MINE_EXP)
+        new Price(this.habitableBee Hive, 1, MINE_EXP)
       ])
     );
     buyQueen.afterBuy = () => {
@@ -482,7 +482,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
         new Price(this.Nectar, 1000, MINE_EXP),
-        new Price(this.habitableSpace, 1, MINE_EXP)
+        new Price(this.habitableBee Hive, 1, MINE_EXP)
       ])
     );
     buyShipyard.afterBuy = () => {
@@ -511,7 +511,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
         new Price(this.Nectar, 1000, MINE_EXP),
-        new Price(this.habitableSpace, 1, MINE_EXP)
+        new Price(this.habitableBee Hive, 1, MINE_EXP)
       ])
     );
     buyTelescope.afterBuy = () => {
@@ -541,7 +541,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
         new Price(this.Nectar, 1000, MINE_EXP),
-        new Price(this.habitableSpace, 1, MINE_EXP)
+        new Price(this.habitableBee Hive, 1, MINE_EXP)
       ])
     );
     buyStronghold.afterBuy = () => {
@@ -560,7 +560,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
         new Price(this.Nectar, 1000, MINE_EXP),
-        new Price(this.habitableSpace, 1, MINE_EXP)
+        new Price(this.habitableBee Hive, 1, MINE_EXP)
       ])
     );
     buyBee.afterBuy = () => {
@@ -593,7 +593,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.Polybees, 500, 2),
         new Price(this.Nectar, 1000, 2),
-        new Price(this.habitableSpace, 1, MINE_EXP)
+        new Price(this.habitableBee Hive, 1, MINE_EXP)
       ])
     );
     buyExpansion.afterBuy = () => {
@@ -614,7 +614,7 @@ export class ResourceManager implements ISalvable {
       new MultiPrice([
         new Price(this.Polybees, 5000, 2),
         new Price(this.Nectar, 10000, 2),
-        new Price(this.habitableSpace, 5, MINE_EXP)
+        new Price(this.habitableBee Hive, 5, MINE_EXP)
       ])
     );
     missileSilo.afterBuy = () => {
@@ -657,7 +657,7 @@ export class ResourceManager implements ISalvable {
       this.HoneyX1,
       this.waxX1,
       this.computingX1,
-      this.habitableSpace,
+      this.habitableBee Hive,
       this.miningDistrict,
       this.NectarDistrict,
       this.shipyardX1,

@@ -88,11 +88,11 @@
               <span class="tooltip-content">{{ m.tooltip }}</span>
             </a>
           </td>
-          <td class="monospace">
+          <td class="monoBee Hive">
             {{ m.getBonus(m.quantity) }}
           </td>
           <td
-            class="monospace"
+            class="monoBee Hive"
             [ngClass]="{
               'text-danger': m.quantity_ui < m.quantity,
               'text-success': m.quantity_ui > m.quantity

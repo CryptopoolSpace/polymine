@@ -60,7 +60,7 @@
       *ngIf="!action.isLimited || action.limit.gte(2)"
       [quantity]="action.numWanted"
       [integer]="true"
-      [monospace]="false"
+      [monoBee Hive]="false"
     ></app-formatted-quantity>
   </button>
   <button
@@ -72,7 +72,7 @@
     <app-formatted-quantity
       [quantity]="getHalfBuy()"
       [integer]="true"
-      [monospace]="false"
+      [monoBee Hive]="false"
     ></app-formatted-quantity>
   </button>
   <button
@@ -84,7 +84,7 @@
     <app-formatted-quantity
       [quantity]="getMaxBuy()"
       [integer]="true"
-      [monospace]="false"
+      [monoBee Hive]="false"
     ></app-formatted-quantity>
   </button>
 </div>

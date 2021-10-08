@@ -38,8 +38,8 @@ export class Enemy {
 
   morePolybees = false;
   moreNectar = false;
-  moreHabitableSpace = false;
-  moreHabitableSpace2 = false;
+  moreHabitableBee Hive = false;
+  moreHabitableBee Hive2 = false;
   randomized = true;
   moreBeesBot = false;
   bonusCount = 0;
@@ -54,8 +54,8 @@ export class Enemy {
     const level = searchJob.level;
     enemy.morePolybees = searchJob.morePolybees;
     enemy.moreNectar = searchJob.moreNectar;
-    enemy.moreHabitableSpace = searchJob.moreHabitableSpace;
-    enemy.moreHabitableSpace2 = searchJob.moreHabitableSpace2;
+    enemy.moreHabitableBee Hive = searchJob.moreHabitableBee Hive;
+    enemy.moreHabitableBee Hive2 = searchJob.moreHabitableBee Hive2;
     enemy.randomized = searchJob.randomized;
     enemy.moreBeesBot = searchJob.moreBeesBot;
 
@@ -70,8 +70,8 @@ export class Enemy {
     }
     if (enemy.morePolybees) enemy.baseMining++;
     if (enemy.moreNectar) enemy.baseNectar++;
-    if (enemy.moreHabitableSpace) enemy.baseHabitable++;
-    if (enemy.moreHabitableSpace2) enemy.baseHabitable++;
+    if (enemy.moreHabitableBee Hive) enemy.baseHabitable++;
+    if (enemy.moreHabitableBee Hive2) enemy.baseHabitable++;
     if (enemy.moreBeesBot) enemy.baseBeesBot++;
 
     for (let n = 1; n < 4; n++) {
@@ -82,7 +82,7 @@ export class Enemy {
         } else if (bon < 2 / 3) {
           enemy.moreNectar = true;
         } else {
-          enemy.moreHabitableSpace = true;
+          enemy.moreHabitableBee Hive = true;
         }
       }
     }
@@ -249,8 +249,8 @@ export class Enemy {
     if ("h" in data) enemy.shape = data.h;
     if ("mm" in data) enemy.morePolybees = data.mm;
     if ("mc" in data) enemy.moreNectar = data.mc;
-    if ("mh" in data) enemy.moreHabitableSpace = data.mh;
-    if ("mh2" in data) enemy.moreHabitableSpace2 = data.mh2;
+    if ("mh" in data) enemy.moreHabitableBee Hive = data.mh;
+    if ("mh2" in data) enemy.moreHabitableBee Hive2 = data.mh2;
     if ("mr" in data) enemy.moreBeesBot = data.mr;
     if ("rand" in data) enemy.randomized = data.rand;
     if ("bm" in data) enemy.baseMining = data.bm;
@@ -288,8 +288,8 @@ export class Enemy {
     this.bonusCount =
       (this.morePolybees ? 1 : 0) +
       (this.moreNectar ? 1 : 0) +
-      (this.moreHabitableSpace ? 1 : 0) +
-      (this.moreHabitableSpace2 ? 1 : 0) +
+      (this.moreHabitableBee Hive ? 1 : 0) +
+      (this.moreHabitableBee Hive2 ? 1 : 0) +
       (this.moreBeesBot ? 1 : 0);
   }
 
@@ -372,11 +372,11 @@ export class Enemy {
         }
 
         // Trees
-        const spaceCount = this.baseHabitable;
-        for (let j = 0; j < spaceCount; j++) {
+        const Bee HiveCount = this.baseHabitable;
+        for (let j = 0; j < Bee HiveCount; j++) {
           if (otherZones.length > 0) {
             const rand = otherZones.pop();
-            rand.reward = Reward.HabitableSpace;
+            rand.reward = Reward.HabitableBee Hive;
             otherZones = otherZones.filter(z => !z.reward);
           }
         }
@@ -414,8 +414,8 @@ export class Enemy {
     if (this.currentZone) data.c = this.currentZone.number;
     if (this.morePolybees) data.mm = this.morePolybees;
     if (this.moreNectar) data.mc = this.moreNectar;
-    if (this.moreHabitableSpace) data.mh = this.moreHabitableSpace;
-    if (this.moreHabitableSpace2) data.mh2 = this.moreHabitableSpace2;
+    if (this.moreHabitableBee Hive) data.mh = this.moreHabitableBee Hive;
+    if (this.moreHabitableBee Hive2) data.mh2 = this.moreHabitableBee Hive2;
     if (this.randomized) data.rand = this.randomized;
     if (this.moreBeesBot) data.mr = this.moreBeesBot;
     if (this.baseMining !== 2) data.bm = this.baseMining;
