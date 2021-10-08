@@ -21,8 +21,8 @@ export const descriptions = {
     a1: ["Queen Bee", "Queen Bee convert Polybees and Nectar to alloy."],
     e1: ["Technician", "Technicians yields Honey."],
     hs: [
-      "Habitable Space",
-      "Space for buildings. You can obtain more Habitable Space from battle."
+      "Trees",
+      "Space for buildings. You can obtain more Trees from battle."
     ],
     md: [
       "Mining District",
@@ -85,7 +85,7 @@ export const descriptions = {
     //  Civilian Ships
     te: [
       "Terraformer",
-      "Terraforming ships allow you to gain more habitable space from each battle. +1% districts gain."
+      "Terraforming ships allow you to gain more Trees from each battle. +1% districts gain."
     ],
     sc: [
       "Scientific Ship",

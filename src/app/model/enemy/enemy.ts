@@ -371,7 +371,7 @@ export class Enemy {
           otherZones = otherZones.filter(z => !z.reward);
         }
 
-        // Habitable Space
+        // Trees
         const spaceCount = this.baseHabitable;
         for (let j = 0; j < spaceCount; j++) {
           if (otherZones.length > 0) {

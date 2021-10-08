@@ -82,7 +82,7 @@ export class SearchJob implements IJob {
           : this.moreNectar
           ? "Nectar search"
           : this.moreHabitableSpace
-          ? "Habitable space search"
+          ? "Trees search"
           : this.moreBeesBot
           ? "BeesBot search"
           : "";
@@ -100,7 +100,7 @@ export class SearchJob implements IJob {
             : "";
         this.name +=
           this.moreHabitableSpace || this.moreHabitableSpace2
-            ? "Habitable Space "
+            ? "Trees "
             : "";
         this.name +=
           (this.moreHabitableSpace || this.moreHabitableSpace2) &&

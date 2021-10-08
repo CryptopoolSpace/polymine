@@ -3,7 +3,7 @@ import { ResourceManager } from "../resource/resourceManager";
 
 export class RefundAction extends Action {
   alertMessage =
-    "Habitable space will be refunded, other resource will be lost. Continue?";
+    "Trees will be refunded, other resource will be lost. Continue?";
   showTime = false;
   showNum = false;
   actionToRefund: Action;

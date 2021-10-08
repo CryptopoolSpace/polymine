@@ -345,10 +345,10 @@ export class AllSkillEffects {
       return (
         "+ " +
         MainService.formatPipe.transform(50 * num, true) +
-        "% Searching, can search for habitable space"
+        "% Searching, can search for Trees"
       );
     };
-    AllSkillEffects.SEARCH_HAB.name = "Prestige search habitable space";
+    AllSkillEffects.SEARCH_HAB.name = "Prestige search Trees";
     resMan.searchX1.productionMultiplier.additiveBonus.push(
       new Bonus(AllSkillEffects.SEARCH_HAB, 0.5, true)
     );
@@ -359,10 +359,10 @@ export class AllSkillEffects {
       return (
         "+ " +
         MainService.formatPipe.transform(50 * num, true) +
-        "% Searching, can search for even more habitable space"
+        "% Searching, can search for even more Trees"
       );
     };
-    AllSkillEffects.SEARCH_HAB2.name = "Prestige search habitable space 2";
+    AllSkillEffects.SEARCH_HAB2.name = "Prestige search Trees 2";
     resMan.searchX1.productionMultiplier.additiveBonus.push(
       new Bonus(AllSkillEffects.SEARCH_HAB2, 0.5, true)
     );
