@@ -191,7 +191,7 @@ export class ResourceManager implements ISalvable {
 
     //  Bee
     this.Bee = new Resource("D");
-    this.Bee.shape = "robot";
+    this.Bee.shape = "BeesBot";
     this.Bee.workerPerMine = new Decimal(50);
     this.BeeFactory = new Resource("F");
     this.Bee.addGenerator(this.BeeFactory, 0.01);
@@ -457,8 +457,8 @@ export class ResourceManager implements ISalvable {
     this.computingX1.limitStorage = buySuperComputer;
     this.computingX1.prestigeLimit = AllSkillEffects.PLUS_CPU;
 
-    //  Alloy Foundry
-    const buyFoundry = new Action(
+    //  Alloy Queen
+    const buyQueen = new Action(
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
@@ -466,14 +466,14 @@ export class ResourceManager implements ISalvable {
         new Price(this.habitableSpace, 1, MINE_EXP)
       ])
     );
-    buyFoundry.afterBuy = () => {
+    buyQueen.afterBuy = () => {
       this.alloyX1.reloadLimit();
     };
-    buyFoundry.name = "Alloy Foundry";
-    buyFoundry.description =
-      "An Alloy Foundry allows you to buy more foundry Bees";
-    this.alloyX1.actions.push(buyFoundry);
-    this.alloyX1.limitStorage = buyFoundry;
+    buyQueen.name = "Alloy Queen";
+    buyQueen.description =
+      "An Alloy Queen allows you to buy more Queen Bees";
+    this.alloyX1.actions.push(buyQueen);
+    this.alloyX1.limitStorage = buyQueen;
     this.alloyX1.prestigeLimit = AllSkillEffects.PLUS_ALLOY;
 
     //  Shipyard
@@ -568,7 +568,7 @@ export class ResourceManager implements ISalvable {
     };
     buyBee.name = "Bee Depot";
     buyBee.description =
-      "Bee Depots allow you to store more robots components.";
+      "Bee Depots allow you to store more BeesBots components.";
     this.Bee.exponentialStorage = true;
     this.Bee.actions.push(buyBee);
     this.Bee.limitStorage = buyBee;
@@ -599,8 +599,8 @@ export class ResourceManager implements ISalvable {
     buyExpansion.afterBuy = () => {
       this.Honey.reloadLimit();
     };
-    buyExpansion.name = "Batteries";
-    buyExpansion.description = "Batteries allow you to store more Honey.";
+    buyExpansion.name = "Hive's";
+    buyExpansion.description = "Hive's allow you to store more Honey.";
     this.Honey.actions.push(buyExpansion);
     this.Honey.limitStorage = buyExpansion;
     this.Honey.exponentialStorage = true;
@@ -690,14 +690,14 @@ export class ResourceManager implements ISalvable {
     );
     this.tierGroups = [
       this.matGroup,
-      new ResourceGroup("1", "Robots", "robot", this.tier1),
+      new ResourceGroup("1", "BeesBots", "BeesBot", this.tier1),
       new ResourceGroup("2", "Buildings", "building", this.tier2),
       new ResourceGroup("5", "Civilian Ships", "satellite", this.civilianShips),
       new ResourceGroup("4", "Districts", "world", this.districts)
     ];
     this.tierGroups[0].action1Name = "Buy Storage";
-    this.tierGroups[1].action1Name = "Buy Robots";
-    this.tierGroups[1].action2Name = "Increase Robot Storage";
+    this.tierGroups[1].action1Name = "Buy BeesBots";
+    this.tierGroups[1].action2Name = "Increase BeesBot Storage";
     this.tierGroups[2].action1Name = "Buy Buildings";
     this.tierGroups[3].action1Name = "Buy Civilian Ships";
 
@@ -937,7 +937,7 @@ export class ResourceManager implements ISalvable {
   }
 
   /**
-   * Deploy robots to jobs
+   * Deploy BeesBots to jobs
    * Based on priority
    */
   deployBees() {
@@ -975,7 +975,7 @@ export class ResourceManager implements ISalvable {
       }
       n++;
     }
-    //  If everything round to zero no robots are deployed
+    //  If everything round to zero no BeesBots are deployed
     //  I fix this by deploy on high priority job
     if (toDeploy.gte(0) && jobs.length > 0 && jobs[0].priority > 0) {
       const job = jobs[0];

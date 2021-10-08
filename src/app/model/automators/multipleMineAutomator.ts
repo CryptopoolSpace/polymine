@@ -4,8 +4,8 @@ import { Resource } from "../resource/resource";
 import { Action } from "../actions/abstractAction";
 
 export class MineGroupAutomator extends GroupAutomator {
-  constructor(public robots: ResourceGroup, i: number) {
-    super("1_" + i, robots);
+  constructor(public BeesBots: ResourceGroup, i: number) {
+    super("1_" + i, BeesBots);
     this.name = "Exp " + i;
     this.stopWhenFactoryUi = false;
     this.description = "Multiple buy Bees expansion at same time";

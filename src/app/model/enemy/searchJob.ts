@@ -19,7 +19,7 @@ export class SearchJob implements IJob {
   moreHabitableSpace = false;
   moreHabitableSpace2 = false;
   randomized = false;
-  moreRobot = false;
+  moreBeesBot = false;
   timeToComplete = Number.POSITIVE_INFINITY;
 
   level = 1;
@@ -41,7 +41,7 @@ export class SearchJob implements IJob {
     if ("mh" in data) job.moreHabitableSpace = data.mh;
     if ("mh2" in data) job.moreHabitableSpace2 = data.mh2;
     if ("ran" in data) job.randomized = data.ran;
-    if ("mr" in data) job.moreRobot = data.mr;
+    if ("mr" in data) job.moreBeesBot = data.mr;
 
     job.generateNameDescription();
     job.reload();
@@ -70,7 +70,7 @@ export class SearchJob implements IJob {
     const bonusCount =
       (this.morePolybees ? 1 : 0) +
       (this.moreNectar ? 1 : 0) +
-      (this.moreRobot ? 1 : 0) +
+      (this.moreBeesBot ? 1 : 0) +
       (this.moreHabitableSpace || this.moreHabitableSpace2 ? 1 : 0);
     switch (bonusCount) {
       case 0:
@@ -83,8 +83,8 @@ export class SearchJob implements IJob {
           ? "Nectar search"
           : this.moreHabitableSpace
           ? "Habitable space search"
-          : this.moreRobot
-          ? "Robot search"
+          : this.moreBeesBot
+          ? "BeesBot search"
           : "";
         break;
       case 2:
@@ -95,7 +95,7 @@ export class SearchJob implements IJob {
           this.moreNectar &&
           (this.moreHabitableSpace ||
             this.moreHabitableSpace2 ||
-            this.moreRobot)
+            this.moreBeesBot)
             ? "& "
             : "";
         this.name +=
@@ -104,10 +104,10 @@ export class SearchJob implements IJob {
             : "";
         this.name +=
           (this.moreHabitableSpace || this.moreHabitableSpace2) &&
-          this.moreRobot
+          this.moreBeesBot
             ? "& "
             : "";
-        this.name += this.moreRobot ? "Robot " : "";
+        this.name += this.moreBeesBot ? "BeesBot " : "";
         this.name += " search";
         break;
       case 4:
@@ -121,7 +121,7 @@ export class SearchJob implements IJob {
     if (this.moreNectar) this.description += "More Nectars ";
     if (this.moreHabitableSpace) this.description += "More Space ";
     if (this.moreHabitableSpace2) this.description += "Even More Space ";
-    if (this.moreRobot) this.description += "More Robots ";
+    if (this.moreBeesBot) this.description += "More BeesBots ";
     if (this.randomized) this.description += "Randomized ";
   }
 
@@ -170,7 +170,7 @@ export class SearchJob implements IJob {
     if (this.morePolybees) data.mm = this.morePolybees;
     if (this.moreNectar) data.mc = this.moreNectar;
     if (this.moreHabitableSpace2) data.mh2 = this.moreHabitableSpace2;
-    if (this.moreRobot) data.mr = this.moreRobot;
+    if (this.moreBeesBot) data.mr = this.moreBeesBot;
     return data;
   }
 }

@@ -14,11 +14,11 @@ export const descriptions = {
       "Computing",
       "Computing is processing power. It cannot be stored but instead, if unused, is used for researching."
     ],
-    b: ["Hive", "Batteries increase your maximum Honey storage."],
+    b: ["Hive", "Hive's increase your maximum Honey storage."],
     i: ["Missile", "Interplanetary missiles destroy enemy defense."],
     m1: ["Mining Bee", "Polybees Mining Bee, yields Polybees."],
     c1: ["Nectar Bee", "Nectar Mining Bee, yields Nectar."],
-    a1: ["Foundry Bee", "Foundry Bee convert Polybees and Nectar to alloy."],
+    a1: ["Queen Bee", "Queen Bee convert Polybees and Nectar to alloy."],
     e1: ["Technician", "Technicians yields Honey."],
     hs: [
       "Habitable Space",
@@ -52,10 +52,10 @@ export const descriptions = {
       "Warrior Bee increase your maximum naval capacity, allowing you to make more ships."
     ],
     i1: ["Missile Factory", ""],
-    F: ["Robot Factory", "Robot Factory make robots."],
+    F: ["BeesBot Factory", "BeesBot Factory make BeesBots."],
     D: [
-      "Robot c.",
-      "Standard multipurpose robot components, when enough a new Bee is deployed to available jobs."
+      "BeesBot c.",
+      "Standard multipurpose BeesBot components, when enough a new Bee is deployed to available jobs."
     ],
     n: ["Naval Capacity", "Naval Capacity"],
     d: ["Inactive Dark Matter", "Inactive Dark Matter"],

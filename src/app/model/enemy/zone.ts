@@ -105,7 +105,7 @@ export class Zone implements ISalvable {
       case Reward.NectarMine:
         this.shape = ResourceManager.getInstance().Nectar.shape;
         break;
-      case Reward.Robot:
+      case Reward.BeesBot:
         this.shape = ResourceManager.getInstance().Bee.shape;
         break;
     }

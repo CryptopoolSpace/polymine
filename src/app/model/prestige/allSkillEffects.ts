@@ -61,7 +61,7 @@ export class AllSkillEffects {
   static readonly MULTI_FACTORY = new SkillEffect(16, "2");
   static readonly TILE_MERGE = new SkillEffect(40, "S", 2);
   //#endregion
-  //#region Robot Modding
+  //#region BeesBot Modding
   static readonly FACTORY_BONUS = new SkillEffect(17, "2", 3);
   static readonly MODDING_PLUS = new SkillEffect(18, "S", 5);
   static readonly DOUBLE_MODDING = new SkillEffect(19, "S", 2);
@@ -83,7 +83,7 @@ export class AllSkillEffects {
   static readonly SEARCH_HAB2 = new SkillEffect(32, "S", 1);
   static readonly SEARCH_RANDOM = new SkillEffect(33, "S", 1);
   static readonly DOUBLE_DISTRICTS = new SkillEffect(34, "S", 5);
-  static readonly SEARCH_ROBOT = new SkillEffect(41, "S", 1);
+  static readonly SEARCH_BeesBot = new SkillEffect(41, "S", 1);
   //#endregion
   //#region Resource Gain Multi
   static readonly Honey_MULTI = new SkillEffect(35, "2");
@@ -269,7 +269,7 @@ export class AllSkillEffects {
       );
     };
     //#endregion
-    //#region Robot Modding
+    //#region BeesBot Modding
     AllSkillEffects.FACTORY_BONUS.getDescription = (num = 1) => {
       return (
         "+ " +
@@ -282,7 +282,7 @@ export class AllSkillEffects {
     ResourceManager.getInstance().BeeFactory.productionMultiplier.multiplicativeBonus.push(
       new Bonus(AllSkillEffects.FACTORY_BONUS, 5, true)
     );
-    AllSkillEffects.FACTORY_BONUS.name = "Robot Factory Prestige";
+    AllSkillEffects.FACTORY_BONUS.name = "BeesBot Factory Prestige";
 
     AllSkillEffects.MODDING_PLUS.getDescription = (num = 1) => {
       return (
@@ -389,18 +389,18 @@ export class AllSkillEffects {
       );
     };
 
-    AllSkillEffects.SEARCH_ROBOT.limit = new Decimal(1);
-    AllSkillEffects.SEARCH_ROBOT.isLimited = true;
-    AllSkillEffects.SEARCH_ROBOT.getDescription = (num = 1) => {
+    AllSkillEffects.SEARCH_BeesBot.limit = new Decimal(1);
+    AllSkillEffects.SEARCH_BeesBot.isLimited = true;
+    AllSkillEffects.SEARCH_BeesBot.getDescription = (num = 1) => {
       return (
         "+ " +
         MainService.formatPipe.transform(50 * num, true) +
-        "% Searching, can search for robot c."
+        "% Searching, can search for BeesBot c."
       );
     };
-    AllSkillEffects.SEARCH_ROBOT.name = "Prestige search robot c.";
+    AllSkillEffects.SEARCH_BeesBot.name = "Prestige search BeesBot c.";
     resMan.searchX1.productionMultiplier.additiveBonus.push(
-      new Bonus(AllSkillEffects.SEARCH_ROBOT, 0.5, true)
+      new Bonus(AllSkillEffects.SEARCH_BeesBot, 0.5, true)
     );
     //#endregion
     //#region Gain Multi
@@ -497,7 +497,7 @@ export class AllSkillEffects {
       AllSkillEffects.DOUBLE_DISTRICTS,
       AllSkillEffects.MULTI_FACTORY,
       AllSkillEffects.TILE_MERGE,
-      AllSkillEffects.SEARCH_ROBOT
+      AllSkillEffects.SEARCH_BeesBot
     ];
     if (!prestige) {
       AllSkillEffects.effectList.forEach(e => {

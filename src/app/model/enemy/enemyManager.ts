@@ -30,7 +30,7 @@ const Polybees_REWARD = 500;
 const Nectar_REWARD = 350;
 const ALLOY_REWARD = 250;
 const RESEARCH_REWARD = 2e3;
-const ROBOT_REWARD = 0.5;
+const BeesBot_REWARD = 0.5;
 const SHIPYARD_REWARD = 200;
 export const MISSILE_DAMAGE = 2500;
 const SEARCH_REWARD = 300;
@@ -40,7 +40,7 @@ const RANDOM_REWARDS = [
   Reward.HabitableSpace,
   Reward.PolybeesMine,
   Reward.NectarMine,
-  Reward.Robot,
+  Reward.BeesBot,
   Reward.Alloy,
   Reward.Enemy
   // Reward.Shipyard
@@ -64,7 +64,7 @@ export class EnemyManager implements ISalvable {
   moreHabitable = false;
   moreHabitable2 = false;
   randomized = false;
-  moreRobot = false;
+  moreBeesBot = false;
 
   nukeAction: NukeAction;
   missileDamageBonus = new BonusStack();
@@ -364,8 +364,8 @@ export class EnemyManager implements ISalvable {
           this.addOrUpdateMessages(resMan.Nectar.name, gain);
           break;
 
-        case Reward.Robot:
-          gain = new Decimal(ROBOT_REWARD * this.currentEnemy.level).times(
+        case Reward.BeesBot:
+          gain = new Decimal(BeesBot_REWARD * this.currentEnemy.level).times(
             prestigeMulti
           );
           resMan.Bee.unlock();
@@ -427,7 +427,7 @@ export class EnemyManager implements ISalvable {
       (this.moreHabitable ? 1 : 0) +
       (this.randomized ? 1 : 0) +
       (this.moreHabitable2 ? 1 : 0) +
-      (this.moreRobot ? 1 : 0);
+      (this.moreBeesBot ? 1 : 0);
     return new Decimal(5e3).times(Decimal.pow(1.2, level - 1));
   }
   /**
@@ -441,7 +441,7 @@ export class EnemyManager implements ISalvable {
     searchJob.moreHabitableSpace = this.moreHabitable;
     searchJob.moreHabitableSpace2 = this.moreHabitable2;
     searchJob.randomized = this.randomized;
-    searchJob.moreRobot = this.moreRobot;
+    searchJob.moreBeesBot = this.moreBeesBot;
     searchJob.total = this.getRequiredSearch(level);
     searchJob.generateNameDescription();
     this.searchJobs.push(searchJob);
@@ -539,7 +539,7 @@ export class EnemyManager implements ISalvable {
     if (this.moreHabitable) data.mh = this.moreHabitable;
     if (this.moreHabitable2) data.mh2 = this.moreHabitable2;
     if (this.randomized) data.ra = this.randomized;
-    if (this.moreRobot) data.mr = this.moreRobot;
+    if (this.moreBeesBot) data.mr = this.moreBeesBot;
     if (this.mergeLevel !== 0) data.mer = this.mergeLevel;
     if (this.currentMerge !== 0) data.cumer = this.currentMerge;
 
@@ -586,7 +586,7 @@ export class EnemyManager implements ISalvable {
     if ("mh" in data) this.moreHabitable = data.mh;
     if ("mh2" in data) this.moreHabitable2 = data.mh2;
     if ("ra" in data) this.randomized = data.ra;
-    if ("mr" in data) this.moreRobot = data.mr;
+    if ("mr" in data) this.moreBeesBot = data.mr;
     if ("mer" in data) this.mergeLevel = data.mer;
     if ("cumer" in data) this.currentMerge = data.cumer;
 

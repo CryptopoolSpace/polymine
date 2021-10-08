@@ -2,11 +2,11 @@ import { ISalvable } from "../base/ISalvable";
 import { ResourceManager } from "../resource/resourceManager";
 import { PrestigeManager } from "../prestige/prestigeManager";
 import { Automator } from "./automator";
-import { RobotAutomator } from "./robotAutomator";
-import { RobotEndingAutomator } from "./robotEndingAutomator";
+import { BeesBotAutomator } from "./BeesBotAutomator";
+import { BeesBotEndingAutomator } from "./BeesBotEndingAutomator";
 import { MineAutomator } from "./mineAutomator";
 import { BuildingAutomator } from "./buildingAutomator";
-import { RobotGroupAutomator } from "./robotGroupAutomator";
+import { BeesBotGroupAutomator } from "./BeesBotGroupAutomator";
 import { MineGroupAutomator } from "./multipleMineAutomator";
 import { BuildingGroupAutomator } from "./buildingGroupAutomator";
 import { FleetAutomator } from "./fleetAutomator";
@@ -69,16 +69,16 @@ export class AutomatorManager implements ISalvable {
 
     const resMan = ResourceManager.getInstance();
 
-    //  Buy Robot 1
+    //  Buy BeesBot 1
     resMan.tier1.forEach(r => {
-      const autoBuy = new RobotAutomator(r);
+      const autoBuy = new BeesBotAutomator(r);
       this.automatorGroups.push(autoBuy);
     });
 
-    //  Buy Robot Ending
+    //  Buy BeesBot Ending
     resMan.tier1.forEach(r => {
       const material = r.products[0].product;
-      const autoBuy = new RobotEndingAutomator(r, material);
+      const autoBuy = new BeesBotEndingAutomator(r, material);
       this.automatorGroups.push(autoBuy);
     });
 
@@ -97,7 +97,7 @@ export class AutomatorManager implements ISalvable {
 
     //  Buy Bee Group
     for (let i = 0; i < 3; i++) {
-      const autoGr1 = new RobotGroupAutomator(resMan.tierGroups[1], i + 1);
+      const autoGr1 = new BeesBotGroupAutomator(resMan.tierGroups[1], i + 1);
       this.automatorGroups.push(autoGr1);
     }
 

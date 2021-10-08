@@ -41,13 +41,13 @@ export class Enemy {
   moreHabitableSpace = false;
   moreHabitableSpace2 = false;
   randomized = true;
-  moreRobot = false;
+  moreBeesBot = false;
   bonusCount = 0;
 
   baseMining = 2;
   baseNectar = 2;
   baseHabitable = 3;
-  baseRobot = 0;
+  baseBeesBot = 0;
 
   static generate(searchJob: SearchJob): Enemy {
     const enemy = new Enemy();
@@ -57,7 +57,7 @@ export class Enemy {
     enemy.moreHabitableSpace = searchJob.moreHabitableSpace;
     enemy.moreHabitableSpace2 = searchJob.moreHabitableSpace2;
     enemy.randomized = searchJob.randomized;
-    enemy.moreRobot = searchJob.moreRobot;
+    enemy.moreBeesBot = searchJob.moreBeesBot;
 
     if (enemy.randomized) {
       enemy.baseMining = Math.min(random(0, 7), 7);
@@ -66,13 +66,13 @@ export class Enemy {
         7 - enemy.baseMining
       );
       enemy.baseHabitable =
-        7 - enemy.baseMining - enemy.baseNectar - enemy.baseRobot;
+        7 - enemy.baseMining - enemy.baseNectar - enemy.baseBeesBot;
     }
     if (enemy.morePolybees) enemy.baseMining++;
     if (enemy.moreNectar) enemy.baseNectar++;
     if (enemy.moreHabitableSpace) enemy.baseHabitable++;
     if (enemy.moreHabitableSpace2) enemy.baseHabitable++;
-    if (enemy.moreRobot) enemy.baseRobot++;
+    if (enemy.moreBeesBot) enemy.baseBeesBot++;
 
     for (let n = 1; n < 4; n++) {
       if (Math.random() < enemy.level / (enemy.level + 100 * n)) {
@@ -251,7 +251,7 @@ export class Enemy {
     if ("mc" in data) enemy.moreNectar = data.mc;
     if ("mh" in data) enemy.moreHabitableSpace = data.mh;
     if ("mh2" in data) enemy.moreHabitableSpace2 = data.mh2;
-    if ("mr" in data) enemy.moreRobot = data.mr;
+    if ("mr" in data) enemy.moreBeesBot = data.mr;
     if ("rand" in data) enemy.randomized = data.rand;
     if ("bm" in data) enemy.baseMining = data.bm;
     if ("bc" in data) enemy.baseNectar = data.bc;
@@ -290,7 +290,7 @@ export class Enemy {
       (this.moreNectar ? 1 : 0) +
       (this.moreHabitableSpace ? 1 : 0) +
       (this.moreHabitableSpace2 ? 1 : 0) +
-      (this.moreRobot ? 1 : 0);
+      (this.moreBeesBot ? 1 : 0);
   }
 
   setOrder() {
@@ -381,12 +381,12 @@ export class Enemy {
           }
         }
 
-        // Robot c.
-        const robotCount = this.baseRobot;
-        for (let j = 0; j < robotCount; j++) {
+        // BeesBot c.
+        const BeesBotCount = this.baseBeesBot;
+        for (let j = 0; j < BeesBotCount; j++) {
           if (otherZones.length > 0) {
             const rand = otherZones.pop();
-            rand.reward = Reward.Robot;
+            rand.reward = Reward.BeesBot;
             otherZones = otherZones.filter(z => !z.reward);
           }
         }
@@ -417,7 +417,7 @@ export class Enemy {
     if (this.moreHabitableSpace) data.mh = this.moreHabitableSpace;
     if (this.moreHabitableSpace2) data.mh2 = this.moreHabitableSpace2;
     if (this.randomized) data.rand = this.randomized;
-    if (this.moreRobot) data.mr = this.moreRobot;
+    if (this.moreBeesBot) data.mr = this.moreBeesBot;
     if (this.baseMining !== 2) data.bm = this.baseMining;
     if (this.baseNectar !== 2) data.bc = this.baseNectar;
     if (this.baseHabitable !== 2) data.bh = this.baseHabitable;

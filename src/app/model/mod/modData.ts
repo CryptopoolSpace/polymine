@@ -55,9 +55,9 @@ export const ModData = {
   },
   s: {
     name: "Expensive / Economic",
-    description: "Robot Price",
+    description: "BeesBot Price",
     tooltip:
-      "Increase or decrease number or robots components needed to make a Bee",
+      "Increase or decrease number or BeesBots components needed to make a Bee",
     max: 7,
     getBonus: (num: DecimalSource) => {
       return MainService.formatPipe.transform(

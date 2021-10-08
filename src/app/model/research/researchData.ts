@@ -118,21 +118,21 @@ export const ResearchData: IResearchData[] = [
   },
   {
     id: "D",
-    name: "Robot Factory",
-    shape: "robot",
+    name: "BeesBot Factory",
+    shape: "BeesBot",
     price: 1e7,
-    description: "Robot Factory",
+    description: "BeesBot Factory",
     resourceToUnlock: ["D", "F"],
     researchToUnlock: ["i", "D1"]
   },
   {
     id: "D1",
     name: "Mass Production",
-    shape: "robot",
+    shape: "BeesBot",
     price: 1e12,
     limit: Number.POSITIVE_INFINITY,
-    description: "Improve Robot Factory",
-    bonus: [["Robot Factory input/output", "+20%"]]
+    description: "Improve BeesBot Factory",
+    bonus: [["BeesBot Factory input/output", "+20%"]]
   },
   {
     id: "M",

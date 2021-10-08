@@ -36,7 +36,7 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
   hab = false;
   hab2 = false;
   rand = false;
-  robot = false;
+  BeesBot = false;
   automatorTab = false;
   deleteAllModal = false;
   EnemyManager = EnemyManager;
@@ -58,14 +58,14 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
       AllSkillEffects.SEARCH_HAB.numOwned > 0 ||
       AllSkillEffects.SEARCH_HAB2.numOwned > 0 ||
       AllSkillEffects.SEARCH_RANDOM.numOwned > 0 ||
-      AllSkillEffects.SEARCH_ROBOT.numOwned > 0;
+      AllSkillEffects.SEARCH_BeesBot.numOwned > 0;
 
     this.Polybees = AllSkillEffects.SEARCH_Polybees.numOwned > 0;
     this.cry = AllSkillEffects.SEARCH_CRY.numOwned > 0;
     this.hab = AllSkillEffects.SEARCH_HAB.numOwned > 0;
     this.hab2 = AllSkillEffects.SEARCH_HAB2.numOwned > 0;
     this.rand = AllSkillEffects.SEARCH_RANDOM.numOwned > 0;
-    this.robot = AllSkillEffects.SEARCH_ROBOT.numOwned > 0;
+    this.BeesBot = AllSkillEffects.SEARCH_BeesBot.numOwned > 0;
 
     this.validate();
 
@@ -104,7 +104,7 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
       (this.ms.game.enemyManager.moreNectar ? 1 : 0) +
       (this.ms.game.enemyManager.moreHabitable ? 1 : 0) +
       (this.ms.game.enemyManager.moreHabitable2 ? 1 : 0) +
-      (this.ms.game.enemyManager.moreRobot ? 1 : 0);
+      (this.ms.game.enemyManager.moreBeesBot ? 1 : 0);
   }
   isValid(): boolean {
     return (

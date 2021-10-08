@@ -4,8 +4,8 @@ import { Resource } from "../resource/resource";
 import { Action } from "../actions/abstractAction";
 
 export class BuildingGroupAutomator extends GroupAutomator {
-  constructor(public robots: ResourceGroup, i: number) {
-    super("b" + i, robots);
+  constructor(public BeesBots: ResourceGroup, i: number) {
+    super("b" + i, BeesBots);
     this.name = "Auto " + i;
     this.stopWhenFactoryUi = false;
     this.description = "Multiple buy buildings at same time";

@@ -136,16 +136,16 @@
                 ></clr-icon
               ></label>
             </div>
-            <div class="checkbox btn" *ngIf="robot">
+            <div class="checkbox btn" *ngIf="BeesBot">
               <input
                 type="checkbox"
                 id="btn-mr"
-                [(ngModel)]="ms.game.enemyManager.moreRobot"
+                [(ngModel)]="ms.game.enemyManager.moreBeesBot"
                 [disabled]="
-                  !ms.game.enemyManager.moreRobot && this.bonusCount >= 3
+                  !ms.game.enemyManager.moreBeesBot && this.bonusCount >= 3
                 "
               />
-              <label for="btn-mr"> <clr-icon shape="robot"></clr-icon></label>
+              <label for="btn-mr"> <clr-icon shape="BeesBot"></clr-icon></label>
             </div>
             <div class="checkbox btn" *ngIf="rand">
               <input
