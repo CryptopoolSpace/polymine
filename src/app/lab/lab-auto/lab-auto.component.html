@@ -4,7 +4,7 @@
   </clr-dg-column>
   <clr-dg-column [clrDgField]="'maxLevel'">Max Level</clr-dg-column>
 
-  <clr-dg-row *clrDgItems="let res of ms.game.researchManager.researches">
+  <clr-dg-row *clrDgItems="let res of ms.Miners.researchManager.researches">
     <clr-dg-cell>{{ res.name }}</clr-dg-cell>
     <clr-dg-cell>
       <input

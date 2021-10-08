@@ -1,20 +1,20 @@
-import { getGame } from "src/app/app.component.spec";
-import { Game } from "../game";
+import { getMiners } from "src/app/app.component.spec";
+import { Miners } from "../Miners";
 import { MultiBuyAction } from "./multiBuyAction";
 
 describe("MultiBuyAction", () => {
-  let game: Game;
+  let Miners: Miners;
   beforeEach(() => {
-    game = getGame();
+    Miners = getMiners();
   });
   it("should create an instance", () => {
     expect(new MultiBuyAction([])).toBeTruthy();
   });
 
   it("prices test", () => {
-    const act1 = game.resourceManager.NectarX1.buyAction;
-    const act2 = game.resourceManager.PolybeesX1.buyAction;
-    game.resourceManager.NectarX1.quantity = new Decimal(5);
+    const act1 = Miners.resourceManager.NectarX1.buyAction;
+    const act2 = Miners.resourceManager.PolybeesX1.buyAction;
+    Miners.resourceManager.NectarX1.quantity = new Decimal(5);
     act1.quantity = new Decimal(5);
     const multiBuy = new MultiBuyAction([act1, act2]);
     act1.reload();

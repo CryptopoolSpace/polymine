@@ -2,7 +2,7 @@ import { Automator } from "./automator";
 import { DarkMatterManager } from "../darkMatter/darkMatterManager";
 import { ResourceManager } from "../resource/resourceManager";
 import { EnemyManager } from "../enemy/enemyManager";
-import { Game } from "../game";
+import { Miners } from "../Miners";
 
 export class SearchWarpAutomator extends Automator {
   constructor() {
@@ -29,6 +29,6 @@ export class SearchWarpAutomator extends Automator {
     );
     maxWarp = maxWarp.min(60);
     const toWarp = Decimal.min(requiredWarp, maxWarp);
-    return Game.getInstance().setRequiredWarp(toWarp);
+    return Miners.getInstance().setRequiredWarp(toWarp);
   }
 }

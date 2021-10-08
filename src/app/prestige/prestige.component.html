@@ -1,12 +1,12 @@
 <h1>
   Prestige
   <app-formatted-quantity
-    [quantity]="ms.game.prestigeManager.totalPrestige"
+    [quantity]="ms.Miners.prestigeManager.totalPrestige"
     [integer]="true"
   ></app-formatted-quantity>
   &nbsp;&nbsp;&nbsp; Ascension
   <app-formatted-quantity
-    [quantity]="ms.game.prestigeManager.ascension"
+    [quantity]="ms.Miners.prestigeManager.ascension"
     [integer]="true"
   ></app-formatted-quantity>
   <!-- /
@@ -35,14 +35,14 @@
     </h4>
 
     <!-- [disabled]="
-          ms.game.enemyManager.maxLevel <= ms.game.prestigeManager.totalPrestige
+          ms.Miners.enemyManager.maxLevel <= ms.Miners.prestigeManager.totalPrestige
         " -->
     <div class="btn-group btn-primary">
       <button class="btn btn-primary" (click)="prestigeModal = true">
         Prestige
-        <span *ngIf="ms.game.prestigeManager.prestigeToEarn > 0"
+        <span *ngIf="ms.Miners.prestigeManager.prestigeToEarn > 0"
           >+
-          {{ ms.game.prestigeManager.prestigeToEarn }}
+          {{ ms.Miners.prestigeManager.prestigeToEarn }}
         </span>
       </button>
       <button
@@ -61,7 +61,7 @@
           clrCheckbox
           value="resetPr"
           name="resetPr"
-          [(ngModel)]="ms.game.resetPrestige"
+          [(ngModel)]="ms.Miners.resetPrestige"
         />
         <label>Reset Prestige</label>
       </clr-checkbox-wrapper>
@@ -82,15 +82,15 @@
       Everything except prestige Skills and Dark Matter will reset.
       <br />
       You will get
-      {{ ms.game.prestigeManager.prestigeToEarn }}
+      {{ ms.Miners.prestigeManager.prestigeToEarn }}
       Skill Points and
       <app-formatted-quantity
-        [quantity]="ms.game.resourceManager.inactiveDarkMatter.quantity"
+        [quantity]="ms.Miners.resourceManager.inactiveDarkMatter.quantity"
         [integer]="true"
       >
       </app-formatted-quantity>
 
-      {{ ms.game.darkMatterManager.darkMatter.name }}
+      {{ ms.Miners.darkMatterManager.darkMatter.name }}
     </p>
   </div>
   <div class="modal-footer">

@@ -22,7 +22,7 @@ describe("ModdingComponent", () => {
     fixture = TestBed.createComponent(ModdingComponent);
     component = fixture.componentInstance;
     component.ms.start();
-    component.res = component.ms.game.resourceManager.PolybeesX1;
+    component.res = component.ms.Miners.resourceManager.PolybeesX1;
     fixture.detectChanges();
   });
 

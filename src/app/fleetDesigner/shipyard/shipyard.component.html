@@ -9,18 +9,18 @@
       <div class="clr-col-6">
         Naval Capacity:
         <app-formatted-quantity
-          [quantity]="ms.game.fleetManager.totalWantedNavalCap"
+          [quantity]="ms.Miners.fleetManager.totalWantedNavalCap"
           [integer]="true"
           [class.text-danger]="
-            ms.game.fleetManager.totalWantedNavalCap.gt(
-              ms.game.fleetManager.totalNavalCapacity
+            ms.Miners.fleetManager.totalWantedNavalCap.gt(
+              ms.Miners.fleetManager.totalNavalCapacity
             )
           "
         >
         </app-formatted-quantity>
         /
         <app-formatted-quantity
-          [quantity]="ms.game.fleetManager.totalNavalCapacity"
+          [quantity]="ms.Miners.fleetManager.totalNavalCapacity"
           [integer]="true"
         ></app-formatted-quantity>
       </div>
@@ -28,9 +28,9 @@
       <div class="clr-col-6">
         Ship:
         <app-formatted-quantity
-          [quantity]="ms.game.fleetManager.totalShipWant"
+          [quantity]="ms.Miners.fleetManager.totalShipWant"
           [integer]="true"
-          [class.text-danger]="ms.game.fleetManager.totalShipWant > 1e4"
+          [class.text-danger]="ms.Miners.fleetManager.totalShipWant > 1e4"
         >
         </app-formatted-quantity>
         /
@@ -39,13 +39,13 @@
       </div>
     </div>
 
-    <ng-container *ngIf="ms.game.resourceManager.shipyardX1.quantity.lte(0)">
+    <ng-container *ngIf="ms.Miners.resourceManager.shipyardX1.quantity.lte(0)">
       <clr-alert [clrAlertType]="'warning'" [clrAlertClosable]="false">
         <clr-alert-item>
           <span class="alert-text">
             You don't have any
             <a [routerLink]="'/home/res/S1'"
-              >{{ ms.game.resourceManager.shipyardX1.name }}
+              >{{ ms.Miners.resourceManager.shipyardX1.name }}
             </a>
           </span>
         </clr-alert-item>
@@ -54,12 +54,12 @@
     </ng-container>
 
     <div
-      *ngIf="ms.game.fleetManager.ships.length > 0; else noDesignAlert"
+      *ngIf="ms.Miners.fleetManager.ships.length > 0; else noDesignAlert"
       class="btn-group btn-primary"
     >
       <button
         class="btn"
-        [disabled]="!ms.game.fleetManager.configurationValid"
+        [disabled]="!ms.Miners.fleetManager.configurationValid"
         (click)="save()"
       >
         <clr-icon shape="floppy"></clr-icon>
@@ -67,7 +67,7 @@
       </button>
       <button
         class="btn btn-success"
-        [disabled]="!ms.game.fleetManager.configurationValid"
+        [disabled]="!ms.Miners.fleetManager.configurationValid"
         (click)="make()"
       >
         <clr-icon shape="cog"></clr-icon>
@@ -81,7 +81,7 @@
           Total Price:
           <app-price-line
             [canBuy]="true"
-            [unit]="ms.game.resourceManager.shipyardProgress"
+            [unit]="ms.Miners.resourceManager.shipyardProgress"
             [price]="totalPrice"
           ></app-price-line>
         </span>
@@ -101,7 +101,7 @@
 
     <form clrForm clrLayout="compact">
       <ng-container
-        *ngFor="let ds of ms.game.fleetManager.ships; trackBy: designId"
+        *ngFor="let ds of ms.Miners.fleetManager.ships; trackBy: designId"
       >
         <clr-input-container>
           <label class="clr-col-12 clr-col-md-8">
@@ -140,13 +140,13 @@
       Jobs:
 
       <app-polynom
-        [c]="ms.game.resourceManager.shipyardProgress.c"
+        [c]="ms.Miners.resourceManager.shipyardProgress.c"
       ></app-polynom>
     </h4>
     <div cdkDropList (cdkDropListDropped)="drop($event)" class="myBg drag-list">
       <app-job
         cdkDrag
-        *ngFor="let job of ms.game.shipyard.jobs; trackBy: getJobId"
+        *ngFor="let job of ms.Miners.shipyard.jobs; trackBy: getJobId"
         [job]="job"
       ></app-job>
     </div>

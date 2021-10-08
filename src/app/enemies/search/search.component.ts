@@ -48,7 +48,7 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.automatorTab =
-      this.ms.game.automatorManager.searchAutomators.findIndex(a =>
+      this.ms.Miners.automatorManager.searchAutomators.findIndex(a =>
         a.isUnlocked()
       ) > -1;
 
@@ -83,11 +83,11 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
     if (typeof preventScroll === typeof Function) preventScroll();
   }
   generate() {
-    this.ms.game.enemyManager.startSearching(this.ms.game.userSearchLevel);
+    this.ms.Miners.enemyManager.startSearching(this.ms.Miners.userSearchLevel);
   }
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(
-      this.ms.game.enemyManager.searchJobs,
+      this.ms.Miners.enemyManager.searchJobs,
       event.previousIndex,
       event.currentIndex
     );
@@ -97,37 +97,37 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   validate() {
     this.limited =
-      this.ms.game.enemyManager.getTotalEnemy() < MAX_ENEMY_LIST_SIZE;
+      this.ms.Miners.enemyManager.getTotalEnemy() < MAX_ENEMY_LIST_SIZE;
     this.valid = this.isValid();
     this.bonusCount =
-      (this.ms.game.enemyManager.morePolybees ? 1 : 0) +
-      (this.ms.game.enemyManager.moreNectar ? 1 : 0) +
-      (this.ms.game.enemyManager.moreHabitable ? 1 : 0) +
-      (this.ms.game.enemyManager.moreHabitable2 ? 1 : 0) +
-      (this.ms.game.enemyManager.moreBeesBot ? 1 : 0);
+      (this.ms.Miners.enemyManager.morePolybees ? 1 : 0) +
+      (this.ms.Miners.enemyManager.moreNectar ? 1 : 0) +
+      (this.ms.Miners.enemyManager.moreHabitable ? 1 : 0) +
+      (this.ms.Miners.enemyManager.moreHabitable2 ? 1 : 0) +
+      (this.ms.Miners.enemyManager.moreBeesBot ? 1 : 0);
   }
   isValid(): boolean {
     return (
-      this.ms.game.enemyManager.getTotalEnemy() < MAX_ENEMY_LIST_SIZE &&
-      (Number.isInteger(this.ms.game.userSearchLevel) &&
-        this.ms.game.userSearchLevel >= 1 &&
-        this.ms.game.userSearchLevel <= this.ms.game.enemyManager.maxLevel)
+      this.ms.Miners.enemyManager.getTotalEnemy() < MAX_ENEMY_LIST_SIZE &&
+      (Number.isInteger(this.ms.Miners.userSearchLevel) &&
+        this.ms.Miners.userSearchLevel >= 1 &&
+        this.ms.Miners.userSearchLevel <= this.ms.Miners.enemyManager.maxLevel)
     );
   }
   sortAsc() {
-    this.ms.game.enemyManager.allEnemy.sort((a, b) => a.level - b.level);
+    this.ms.Miners.enemyManager.allEnemy.sort((a, b) => a.level - b.level);
   }
   sortDesc() {
-    this.ms.game.enemyManager.allEnemy.sort((a, b) => b.level - a.level);
+    this.ms.Miners.enemyManager.allEnemy.sort((a, b) => b.level - a.level);
   }
   massDelete() {
-    this.ms.game.enemyManager.allEnemy = this.ms.game.enemyManager.allEnemy.filter(
-      a => a.level >= this.ms.game.userSearchLevel
+    this.ms.Miners.enemyManager.allEnemy = this.ms.Miners.enemyManager.allEnemy.filter(
+      a => a.level >= this.ms.Miners.userSearchLevel
     );
     this.deleteModal = false;
   }
   deleteAll() {
-    this.ms.game.enemyManager.allEnemy = [];
+    this.ms.Miners.enemyManager.allEnemy = [];
     this.deleteAllModal = false;
   }
 }

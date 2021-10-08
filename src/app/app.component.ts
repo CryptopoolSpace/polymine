@@ -165,21 +165,21 @@ export class AppComponent implements AfterViewInit {
   }
 
   all100() {
-    this.ms.game.resourceManager.unlockedResources.forEach(r => {
+    this.ms.Miners.resourceManager.unlockedResources.forEach(r => {
       r.operativity = 100;
     });
   }
   all(operativity: number) {
-    this.ms.game.resourceManager.unlockedResources.forEach(r => {
+    this.ms.Miners.resourceManager.unlockedResources.forEach(r => {
       r.operativity = operativity;
     });
-    this.ms.game.resourceManager.HoneyX1.operativity = 100;
+    this.ms.Miners.resourceManager.HoneyX1.operativity = 100;
   }
   skip(minute: number) {
-    this.ms.game.darkMatterManager.warpMin.buy(new Decimal(minute));
+    this.ms.Miners.darkMatterManager.warpMin.buy(new Decimal(minute));
   }
   warpAv(minute: number) {
-    return this.ms.game.darkMatterManager.darkMatter.quantity.gte(60 * minute);
+    return this.ms.Miners.darkMatterManager.darkMatter.quantity.gte(60 * minute);
   }
 
   @HostListener("window:keyup", ["$event"])
@@ -188,10 +188,10 @@ export class AppComponent implements AfterViewInit {
     // with type info
     switch (event.key) {
       case "m":
-        this.ms.game.darkMatterManager.warpMin.buy(new Decimal(1));
+        this.ms.Miners.darkMatterManager.warpMin.buy(new Decimal(1));
         break;
       case "h":
-        this.ms.game.darkMatterManager.warpHour.buy(new Decimal(1));
+        this.ms.Miners.darkMatterManager.warpHour.buy(new Decimal(1));
     }
   }
 }

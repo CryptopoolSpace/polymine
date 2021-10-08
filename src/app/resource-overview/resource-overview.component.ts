@@ -42,8 +42,8 @@ export class ResourceOverviewComponent
     if (typeof preventScroll === typeof Function) preventScroll();
   }
   ngOnInit() {
-    if (this.res === this.ms.game.resourceManager.missile) {
-      this.missileDamage = this.ms.game.enemyManager.missileDamageBonus
+    if (this.res === this.ms.Miners.resourceManager.missile) {
+      this.missileDamage = this.ms.Miners.enemyManager.missileDamageBonus
         .getTotalBonus()
         .times(MISSILE_DAMAGE);
     }
@@ -52,8 +52,8 @@ export class ResourceOverviewComponent
     this.subscriptions.push(
       this.ms.em.updateEmitter.subscribe(() => {
         this.setAlerts();
-        if (this.res === this.ms.game.resourceManager.missile) {
-          this.missileDamage = this.ms.game.enemyManager.missileDamageBonus
+        if (this.res === this.ms.Miners.resourceManager.missile) {
+          this.missileDamage = this.ms.Miners.enemyManager.missileDamageBonus
             .getTotalBonus()
             .times(MISSILE_DAMAGE);
         }

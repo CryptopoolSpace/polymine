@@ -2,7 +2,7 @@ import { Automator } from "./automator";
 import { Shipyard } from "../shipyard/shipyard";
 import { DarkMatterManager } from "../darkMatter/darkMatterManager";
 import { ResourceManager } from "../resource/resourceManager";
-import { Game } from "../game";
+import { Miners } from "../Miners";
 
 export class ShipyardWarp extends Automator {
   constructor() {
@@ -29,7 +29,7 @@ export class ShipyardWarp extends Automator {
     );
     maxWarp = maxWarp.min(60);
     const toWarp = Decimal.min(requiredWarp, maxWarp);
-    return Game.getInstance().setRequiredWarp(toWarp);
+    return Miners.getInstance().setRequiredWarp(toWarp);
     // return DarkMatterManager.getInstance().warpMin.buy(new Decimal(toWarp));
   }
 }

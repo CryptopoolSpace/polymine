@@ -40,7 +40,7 @@ export class PrestigeComponent implements OnInit, OnChanges, AfterViewInit {
     this.reloadList();
   }
   ngOnInit() {
-    this.canAscend = this.ms.game.prestigeManager.canAscend();
+    this.canAscend = this.ms.Miners.prestigeManager.canAscend();
     this.reloadList();
   }
   ngAfterViewInit(): void {
@@ -56,8 +56,8 @@ export class PrestigeComponent implements OnInit, OnChanges, AfterViewInit {
       .map(e => e.getDescription(e.numOwned));
   }
   prestige() {
-    this.ms.game.prestige();
-    this.canAscend = this.ms.game.prestigeManager.canAscend();
+    this.ms.Miners.prestige();
+    this.canAscend = this.ms.Miners.prestigeManager.canAscend();
     this.prestigeModal = false;
     this.reloadList();
 
@@ -66,8 +66,8 @@ export class PrestigeComponent implements OnInit, OnChanges, AfterViewInit {
     } catch (ex) {}
   }
   ascend() {
-    this.ms.game.ascend();
-    this.canAscend = this.ms.game.prestigeManager.canAscend();
+    this.ms.Miners.ascend();
+    this.canAscend = this.ms.Miners.prestigeManager.canAscend();
     this.ascendModal = false;
     this.reloadList();
 

@@ -2,7 +2,7 @@ import { Action } from "./abstractAction";
 import { MultiPrice } from "../prices/multiPrice";
 import { Price } from "../prices/price";
 import { BuyAction } from "./buyAction";
-import { ZERO_DECIMAL_IMMUTABLE } from "../game";
+import { ZERO_DECIMAL_IMMUTABLE } from "../Miners";
 
 /**
  * Multiple Action aggregation

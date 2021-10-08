@@ -64,11 +64,11 @@ export class ButtonsComponent implements OnInit, OnDestroy {
   //   this.canSkip = false;
   //   if (!this.action.canBuy && this.skippable && this.showTime) {
   //     this.minuteSkip = Math.ceil(Math.max(this.action.availableIn / 60000, 1));
-  //     this.canSkip = this.ms.game.time.quantity.gt(this.minuteSkip * 60);
+  //     this.canSkip = this.ms.Miners.time.quantity.gt(this.minuteSkip * 60);
   //   }
   // }
   skip() {
-    // if (this.canSkip) this.ms.game.actMin.buy(new Decimal(this.minuteSkip));
+    // if (this.canSkip) this.ms.Miners.actMin.buy(new Decimal(this.minuteSkip));
   }
   onNumChange() {
     this.action.setNumWanted();

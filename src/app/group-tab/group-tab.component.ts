@@ -49,11 +49,11 @@ export class GroupTabComponent implements OnInit, OnDestroy, AfterViewInit {
     this.paramsSave = params;
     let id = "" + params.id;
     if (id === undefined) id = "0";
-    this.unitGroup = this.ms.game.resourceManager.tierGroups.find(
+    this.unitGroup = this.ms.Miners.resourceManager.tierGroups.find(
       g => "" + g.id === id
     );
     if (!this.unitGroup) {
-      this.unitGroup = this.ms.game.resourceManager.tierGroups[0];
+      this.unitGroup = this.ms.Miners.resourceManager.tierGroups[0];
     }
     if (!this.unitGroup) return;
 

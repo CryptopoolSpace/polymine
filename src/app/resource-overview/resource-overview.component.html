@@ -56,7 +56,7 @@
     </div>
 
     <!-- Priority -->
-    <div *ngIf="res.showPriority && ms.game.resourceManager.Bee.unlocked">
+    <div *ngIf="res.showPriority && ms.Miners.resourceManager.Bee.unlocked">
       <h6 role="tooltip" aria-haspopup="true" class="tooltip tooltip-lg">
         BeesBot Priority:
         <span class="monospace"> {{ res.priority }}</span> %
@@ -94,7 +94,7 @@
       </h6>
 
       <app-bonus-view
-        [bonus]="ms.game.enemyManager.missileDamageBonus"
+        [bonus]="ms.Miners.enemyManager.missileDamageBonus"
       ></app-bonus-view>
     </ng-container>
   </div>

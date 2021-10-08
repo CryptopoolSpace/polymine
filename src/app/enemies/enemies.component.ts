@@ -29,7 +29,7 @@ export class EnemiesComponent implements OnInit, AfterViewInit {
   }
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(
-      this.ms.game.enemyManager.allEnemy,
+      this.ms.Miners.enemyManager.allEnemy,
       event.previousIndex,
       event.currentIndex
     );

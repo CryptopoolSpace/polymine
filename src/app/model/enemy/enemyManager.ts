@@ -17,7 +17,7 @@ import { ResearchManager } from "../research/researchManager";
 import { sample } from "lodash-es";
 import { NukeAction } from "../actions/nukeAction";
 import { BonusStack } from "../bonus/bonusStack";
-import { ZERO_DECIMAL_IMMUTABLE } from "../game";
+import { ZERO_DECIMAL_IMMUTABLE } from "../Miners";
 import { Bonus } from "../bonus/bonus";
 import { AutomatorManager } from "../automators/automatorManager";
 import { ShipDesign } from "../fleet/shipDesign";

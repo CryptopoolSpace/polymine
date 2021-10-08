@@ -5,7 +5,7 @@ import { FormatPipe } from "../format.pipe";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { MainService } from "../main.service";
 import { OptionsService } from "../options.service";
-import { getGame, defaultImport } from "../app.component.spec";
+import { getMiners, defaultImport } from "../app.component.spec";
 
 describe("BonusViewComponent", () => {
   let component: BonusViewComponent;
@@ -23,8 +23,8 @@ describe("BonusViewComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BonusViewComponent);
     component = fixture.componentInstance;
-    const game = getGame();
-    component.production = game.resourceManager.alloyX1.products[0];
+    const Miners = getMiners();
+    component.production = Miners.resourceManager.alloyX1.products[0];
     fixture.detectChanges();
   });
 

@@ -1,4 +1,4 @@
-<clr-main-container *ngIf="ms.webWorker && ms.show && ms.game" [@fadeInOut]>
+<clr-main-container *ngIf="ms.webWorker && ms.show && ms.Miners" [@fadeInOut]>
   <!-- Header -->
   <clr-header class="header" [ngClass]="os.headerClass">
     <div class="header-nav" [clr-nav-level]="1">
@@ -20,7 +20,7 @@
         [routerLink]="'lab'"
         class="nav-link"
         [routerLinkActive]="'active'"
-        *ngIf="ms.game.resourceManager.computing.unlocked"
+        *ngIf="ms.Miners.resourceManager.computing.unlocked"
       >
         <span class="nav-text">
           <span class="small-title">
@@ -28,8 +28,8 @@
           </span>
           <clr-icon
             [ngClass]="{
-              'is-warning': ms.game.researchManager.isNew,
-              'is-solid': ms.game.researchManager.isNew
+              'is-warning': ms.Miners.researchManager.isNew,
+              'is-solid': ms.Miners.researchManager.isNew
             }"
             shape="lightbulb"
           ></clr-icon>
@@ -40,7 +40,7 @@
         [routerLink]="'fleet'"
         class="nav-link"
         [routerLinkActive]="'active'"
-        *ngIf="ms.game.researchManager.corvette.firstDone"
+        *ngIf="ms.Miners.researchManager.corvette.firstDone"
       >
         <span class="nav-text">
           <span class="small-title">
@@ -48,7 +48,7 @@
           </span>
           <clr-icon
             shape="cog"
-            [ngClass]="{ 'has-alert': ms.game.overNavalCap }"
+            [ngClass]="{ 'has-alert': ms.Miners.overNavalCap }"
           ></clr-icon>
         </span>
       </a>
@@ -57,7 +57,7 @@
         [routerLink]="'battle'"
         class="nav-link"
         [routerLinkActive]="'active'"
-        *ngIf="ms.game.researchManager.corvette.firstDone"
+        *ngIf="ms.Miners.researchManager.corvette.firstDone"
       >
         <span class="nav-text">
           <span class="small-title">
@@ -71,7 +71,7 @@
         [routerLink]="'enemies'"
         class="nav-link"
         [routerLinkActive]="'active'"
-        *ngIf="ms.game.researchManager.telescope.firstDone"
+        *ngIf="ms.Miners.researchManager.telescope.firstDone"
       >
         <span class="nav-text">
           <span class="small-title">
@@ -99,7 +99,7 @@
         [routerLink]="'darkMatter'"
         class="nav-link"
         [routerLinkActive]="'active'"
-        *ngIf="ms.game.darkMatterManager.darkMatter.unlocked"
+        *ngIf="ms.Miners.darkMatterManager.darkMatter.unlocked"
       >
         <span class="nav-text">
           <span class="small-title">
@@ -114,8 +114,8 @@
         class="nav-link"
         [routerLinkActive]="'active'"
         *ngIf="
-          ms.game.prestigeManager.totalPrestige > 0 ||
-          ms.game.prestigeManager.prestigeToEarn > 0
+          ms.Miners.prestigeManager.totalPrestige > 0 ||
+          ms.Miners.prestigeManager.prestigeToEarn > 0
         "
       >
         <span class="nav-text">
@@ -125,19 +125,19 @@
           <span
             class="badge badge-info"
             *ngIf="
-              ms.game.prestigeManager.prestigeToEarn > 0 &&
-              !this.ms.game.prestigeManager.canAscend()
+              ms.Miners.prestigeManager.prestigeToEarn > 0 &&
+              !this.ms.Miners.prestigeManager.canAscend()
             "
           >
             <app-formatted-quantity
-              [quantity]="ms.game.prestigeManager.prestigeToEarn"
+              [quantity]="ms.Miners.prestigeManager.prestigeToEarn"
               [integer]="true"
               [monospace]="false"
             ></app-formatted-quantity>
           </span>
           <span
             class="badge badge-success"
-            *ngIf="this.ms.game.prestigeManager.canAscend()"
+            *ngIf="this.ms.Miners.prestigeManager.canAscend()"
           >
             Ascend
           </span>
@@ -155,7 +155,7 @@
           <a clrDropdownItem (click)="all100()">All 100%</a>
           <a clrDropdownItem (click)="skip(1)">Warp 1 minute</a>
 
-          <clr-dropdown *ngIf="ms.game.darkMatterManager.darkMatter.unlocked">
+          <clr-dropdown *ngIf="ms.Miners.darkMatterManager.darkMatter.unlocked">
             <button type="button" clrDropdownTrigger>Time Warps</button>
             <clr-dropdown-menu clrPosition="left-top" *clrIfOpen>
               <a
@@ -241,8 +241,8 @@
 
       <a href="javascript://" class="nav-link nav-icon">
         <clr-icon
-          [attr.shape]="ms.game.isPaused ? 'play' : 'pause'"
-          (click)="ms.game.isPaused = !ms.game.isPaused"
+          [attr.shape]="ms.Miners.isPaused ? 'play' : 'pause'"
+          (click)="ms.Miners.isPaused = !ms.Miners.isPaused"
         ></clr-icon>
       </a>
       <a
@@ -269,7 +269,7 @@
   <router-outlet></router-outlet>
 
   <!-- Modals -->
-  <clr-modal [(clrModalOpen)]="ms.game.researchManager.isNewModal">
+  <clr-modal [(clrModalOpen)]="ms.Miners.researchManager.isNewModal">
     <h3 class="modal-title">
       <clr-icon shape="lightbulb"></clr-icon>
       Researches
@@ -286,15 +286,15 @@
       <button
         type="button"
         class="btn btn-primary"
-        (click)="ms.game.researchManager.isNewModal = false"
+        (click)="ms.Miners.researchManager.isNewModal = false"
       >
         Ok
       </button>
     </div>
   </clr-modal>
 
-  <ng-container *ngIf="ms.game.prestigeManager.totalPrestige < 1">
-    <clr-modal [(clrModalOpen)]="ms.game.researchManager.corvetteModal">
+  <ng-container *ngIf="ms.Miners.prestigeManager.totalPrestige < 1">
+    <clr-modal [(clrModalOpen)]="ms.Miners.researchManager.corvetteModal">
       <h3 class="modal-title">
         <clr-icon shape="rank1"></clr-icon>
         Corvette
@@ -314,7 +314,7 @@
         <button
           type="button"
           class="btn btn-primary"
-          (click)="ms.game.researchManager.corvetteModal = false"
+          (click)="ms.Miners.researchManager.corvetteModal = false"
         >
           Ok
         </button>
@@ -322,7 +322,7 @@
     </clr-modal>
   </ng-container>
 
-  <clr-modal [(clrModalOpen)]="ms.game.enemyManager.prestigeModal">
+  <clr-modal [(clrModalOpen)]="ms.Miners.enemyManager.prestigeModal">
     <h3 class="modal-title">
       <clr-icon shape="info"></clr-icon>
       Prestige
@@ -340,14 +340,14 @@
       <button
         type="button"
         class="btn btn-primary"
-        (click)="ms.game.enemyManager.prestigeModal = false"
+        (click)="ms.Miners.enemyManager.prestigeModal = false"
       >
         Ok
       </button>
     </div>
   </clr-modal>
 
-  <clr-modal [(clrModalOpen)]="ms.game.enemyManager.ascendModal">
+  <clr-modal [(clrModalOpen)]="ms.Miners.enemyManager.ascendModal">
     <h3 class="modal-title">
       <clr-icon shape="info"></clr-icon>
       Ascension
@@ -365,7 +365,7 @@
       <button
         type="button"
         class="btn btn-primary"
-        (click)="ms.game.enemyManager.ascendModal = false"
+        (click)="ms.Miners.enemyManager.ascendModal = false"
       >
         Ok
       </button>

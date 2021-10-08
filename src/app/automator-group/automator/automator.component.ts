@@ -29,7 +29,7 @@ export class AutomatorComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.setProgress();
-    this.intervals = this.ms.game.automatorManager.times;
+    this.intervals = this.ms.Miners.automatorManager.times;
     this.subscriptions.push(
       this.ms.em.updateEmitter.subscribe(() => {
         this.setProgress();

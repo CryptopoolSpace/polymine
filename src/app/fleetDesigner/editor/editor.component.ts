@@ -58,7 +58,7 @@ export class EditorComponent
     }
   }
   ngOnInit() {
-    this.ms.game.fleetManager.isUsed = true;
+    this.ms.Miners.fleetManager.isUsed = true;
     this.ms.hotkeyEnabled = false;
     this.shipNum = Number.parseInt(this.design.type.id, 10);
     if (this.shipNum > 6) {
@@ -70,16 +70,16 @@ export class EditorComponent
       this.edit();
     }
 
-    this.defenses = this.ms.game.fleetManager.unlockedModules.filter(
+    this.defenses = this.ms.Miners.fleetManager.unlockedModules.filter(
       m => m.armor.gt(0) || m.shield.gt(0)
     );
-    this.generators = this.ms.game.fleetManager.unlockedModules.filter(m =>
+    this.generators = this.ms.Miners.fleetManager.unlockedModules.filter(m =>
       m.HoneyBalance.gt(0)
     );
-    this.damageReduction = this.ms.game.fleetManager.unlockedModules.filter(
+    this.damageReduction = this.ms.Miners.fleetManager.unlockedModules.filter(
       m => m.armorReduction.gt(0) || m.shieldReduction.gt(0)
     );
-    this.drives = this.ms.game.fleetManager.unlockedModules.filter(
+    this.drives = this.ms.Miners.fleetManager.unlockedModules.filter(
       m => m.tilePerSec > 0
     );
 
@@ -92,7 +92,7 @@ export class EditorComponent
     );
   }
   ngOnDestroy() {
-    this.ms.game.fleetManager.isUsed = false;
+    this.ms.Miners.fleetManager.isUsed = false;
     this.ms.hotkeyEnabled = true;
     this.subscriptions.forEach((sub: Subscription) => sub.unsubscribe());
   }
@@ -102,12 +102,12 @@ export class EditorComponent
       !this.design.class ||
       (this.design.class.id !== "4" && this.design.class.id !== "5")
     ) {
-      this.weapons = this.ms.game.fleetManager.unlockedModules.filter(m =>
+      this.weapons = this.ms.Miners.fleetManager.unlockedModules.filter(m =>
         m.damage.gt(0)
       );
     }
     if (this.design.class && this.design.class.id === "4") {
-      this.other = this.ms.game.fleetManager.allModules.filter(m =>
+      this.other = this.ms.Miners.fleetManager.allModules.filter(m =>
         m.shieldCharge.gt(0)
       );
     }
@@ -122,7 +122,7 @@ export class EditorComponent
   }
   reload() {
     this.design.editable.modules.forEach(w => {
-      w.module = this.ms.game.fleetManager.unlockedModules.find(
+      w.module = this.ms.Miners.fleetManager.unlockedModules.find(
         q => q.id === w.moduleId
       );
 
@@ -138,7 +138,7 @@ export class EditorComponent
   }
 
   deleteDesign() {
-    this.ms.game.fleetManager.deleteDesign(this.design);
+    this.ms.Miners.fleetManager.deleteDesign(this.design);
     this.router.navigate(["/fleet/design"]);
   }
   getModuleId(index: number, module: Module) {

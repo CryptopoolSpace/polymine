@@ -1,7 +1,7 @@
 import { SkillEffect } from "./skillEffects";
 import { ResourceManager } from "../resource/resourceManager";
 import { Bonus } from "../bonus/bonus";
-import { Game } from "../game";
+import { Miners } from "../Miners";
 import { MainService } from "src/app/main.service";
 import { SkillGroup } from "./skillGroup";
 
@@ -452,7 +452,7 @@ export class AllSkillEffects {
       );
     };
     AllSkillEffects.RESEARCH_MULTI.name = "Prestige Research multi";
-    Game.getInstance().researchBonus.multiplicativeBonus.push(
+    Miners.getInstance().researchBonus.multiplicativeBonus.push(
       new Bonus(AllSkillEffects.RESEARCH_MULTI, 3, true)
     );
     //#endregion

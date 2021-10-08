@@ -4,7 +4,7 @@
   [clr-nav-level]="2"
   class="nav-trigger--bottom"
   cdkDropList
-  [cdkDropListData]="ms.game.enemyManager.allEnemy"
+  [cdkDropListData]="ms.Miners.enemyManager.allEnemy"
   (cdkDropListDropped)="drop($event)"
 >
   <a clrVerticalNavLink routerLink="./search" routerLinkActive="active">
@@ -16,7 +16,7 @@
     [routerLink]="'./view/' + en.id"
     routerLinkActive="active"
     class="movable enemyLine"
-    *ngFor="let en of ms.game.enemyManager.allEnemy; trackBy: getEnemyId"
+    *ngFor="let en of ms.Miners.enemyManager.allEnemy; trackBy: getEnemyId"
   >
     <clr-icon [attr.shape]="en.shape"></clr-icon>
 

@@ -14,6 +14,6 @@ export class SearchAutomatorComponent implements OnInit {
   constructor(public ms: MainService) {}
 
   ngOnInit() {
-    this.auto = this.ms.game.automatorManager.searchAutomator;
+    this.auto = this.ms.Miners.automatorManager.searchAutomator;
   }
 }

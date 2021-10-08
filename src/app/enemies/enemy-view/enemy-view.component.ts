@@ -52,7 +52,7 @@ export class EnemyViewComponent implements OnInit, OnDestroy, AfterViewInit {
     const id = params.id;
     // == compare string and number !
     // tslint:disable-next-line:triple-equals
-    const b = this.ms.game.enemyManager.allEnemy.find(u => u.id == id);
+    const b = this.ms.Miners.enemyManager.allEnemy.find(u => u.id == id);
     if (b instanceof Enemy) this.enemy = b;
     this.cd.markForCheck();
   }
@@ -63,17 +63,17 @@ export class EnemyViewComponent implements OnInit, OnDestroy, AfterViewInit {
     return (this.enemy ? this.enemy.id : "") + "-" + mod.id;
   }
   attack() {
-    const ret = this.ms.game.enemyManager.attack(this.enemy);
+    const ret = this.ms.Miners.enemyManager.attack(this.enemy);
     if (ret) {
       this.router.navigateByUrl("/battle");
     }
   }
   move(up = 1) {
-    const index = this.ms.game.enemyManager.allEnemy.indexOf(this.enemy);
-    moveItemInArray(this.ms.game.enemyManager.allEnemy, index, index + up);
+    const index = this.ms.Miners.enemyManager.allEnemy.indexOf(this.enemy);
+    moveItemInArray(this.ms.Miners.enemyManager.allEnemy, index, index + up);
   }
   delete() {
-    this.ms.game.enemyManager.delete(this.enemy);
+    this.ms.Miners.enemyManager.delete(this.enemy);
     this.deleteModal = false;
     this.router.navigateByUrl("/enemies");
   }

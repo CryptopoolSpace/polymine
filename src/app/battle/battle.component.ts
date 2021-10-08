@@ -32,8 +32,8 @@ export class BattleMenuComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     let n = 1;
-    this.maxExtraTile = this.ms.game.fleetManager.maxTilePerFight;
-    this.ms.game.fleetManager.ships.forEach(s => {
+    this.maxExtraTile = this.ms.Miners.fleetManager.maxTilePerFight;
+    this.ms.Miners.fleetManager.ships.forEach(s => {
       s.order = n;
       n++;
     });
@@ -56,29 +56,29 @@ export class BattleMenuComponent implements OnInit, OnDestroy, AfterViewInit {
     this.subscriptions.forEach((sub: Subscription) => sub.unsubscribe());
   }
   startBattle() {
-    this.ms.game.enemyManager.startBattle();
+    this.ms.Miners.enemyManager.startBattle();
   }
   surrender() {
-    this.ms.game.enemyManager.surrender();
+    this.ms.Miners.enemyManager.surrender();
     this.surrenderModal = false;
   }
   nuke(num: Decimal) {
-    this.ms.game.enemyManager.nukeAction.buy(num);
+    this.ms.Miners.enemyManager.nukeAction.buy(num);
     this.ms.em.battleEndEmitter.emit(55);
   }
   reloadDistrictStats() {
-    if (this.ms.game.enemyManager.currentEnemy) {
+    if (this.ms.Miners.enemyManager.currentEnemy) {
       let prestigeMulti = new Decimal(1).plus(
-        this.ms.game.researchManager.scavenger.quantity.times(0.1)
+        this.ms.Miners.researchManager.scavenger.quantity.times(0.1)
       );
       prestigeMulti = prestigeMulti.times(
         AllSkillEffects.DOUBLE_BATTLE_GAIN.numOwned * 2 + 1
       );
       this.totalDistrictGain = prestigeMulti
-        .times(this.ms.game.enemyManager.currentEnemy.level)
+        .times(this.ms.Miners.enemyManager.currentEnemy.level)
         .times(
           new Decimal(1).plus(
-            this.ms.game.resourceManager.terraformer
+            this.ms.Miners.resourceManager.terraformer
               .getQuantity()
               .times(TERRAFORMER_MULTI)
           )

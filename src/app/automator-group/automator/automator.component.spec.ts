@@ -23,7 +23,7 @@ describe("AutomatorComponent", () => {
     fixture = TestBed.createComponent(AutomatorComponent);
     component = fixture.componentInstance;
     component.ms.start();
-    component.auto = component.ms.game.automatorManager.automatorGroups[0];
+    component.auto = component.ms.Miners.automatorManager.automatorGroups[0];
     fixture.detectChanges();
   });
 

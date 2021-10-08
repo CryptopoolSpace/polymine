@@ -47,14 +47,14 @@ export class ResourceComponent implements OnInit, OnDestroy, AfterViewInit {
   getUnit(params: any) {
     let id = params.id;
     if (id === undefined) {
-      id = this.ms.game.resourceManager.Polybees.id;
+      id = this.ms.Miners.resourceManager.Polybees.id;
     }
     let b: Resource;
 
     b =
       id !== "da"
-        ? this.ms.game.resourceManager.unlockedResources.find(u => u.id === id)
-        : (b = this.ms.game.darkMatterManager.darkMatter);
+        ? this.ms.Miners.resourceManager.unlockedResources.find(u => u.id === id)
+        : (b = this.ms.Miners.darkMatterManager.darkMatter);
 
     if (b instanceof Resource) {
       this.res = b;

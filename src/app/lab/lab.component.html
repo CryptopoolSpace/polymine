@@ -6,14 +6,14 @@
         <div
           cdkDropList
           #backLogList="cdkDropList"
-          [cdkDropListData]="ms.game.researchManager.backLog"
+          [cdkDropListData]="ms.Miners.researchManager.backLog"
           [cdkDropListConnectedTo]="[todoList]"
           class="drag-list myBg"
           (cdkDropListDropped)="drop($event)"
         >
           <app-job
             *ngFor="
-              let res of ms.game.researchManager.backLog;
+              let res of ms.Miners.researchManager.backLog;
               trackBy: getResId
             "
             [job]="res"
@@ -28,13 +28,13 @@
         <div
           cdkDropList
           #todoList="cdkDropList"
-          [cdkDropListData]="ms.game.researchManager.toDo"
+          [cdkDropListData]="ms.Miners.researchManager.toDo"
           [cdkDropListConnectedTo]="[backLogList]"
           class="drag-list myBg"
           (cdkDropListDropped)="drop($event)"
         >
           <app-job
-            *ngFor="let res of ms.game.researchManager.toDo; trackBy: getResId"
+            *ngFor="let res of ms.Miners.researchManager.toDo; trackBy: getResId"
             [job]="res"
             [showDetails]="ms.showDetails"
             cdkDrag
@@ -52,7 +52,7 @@
       <app-formatted-quantity [quantity]="resMulti"></app-formatted-quantity
       ><br />
       <span>Computing is increasing at: </span>
-      <app-polynom [c]="ms.game.resourceManager.computing.c"> </app-polynom>
+      <app-polynom [c]="ms.Miners.resourceManager.computing.c"> </app-polynom>
       <br />
       Research /s:
       <app-formatted-quantity [quantity]="resPerSec"></app-formatted-quantity>
@@ -90,7 +90,7 @@
           type="checkbox"
           clrToggle
           name="autoSort"
-          [(ngModel)]="ms.game.researchManager.autoSort"
+          [(ngModel)]="ms.Miners.researchManager.autoSort"
         />
         <label>Auto Sort</label>
       </clr-toggle-wrapper>
@@ -114,6 +114,6 @@
 <clr-modal [(clrModalOpen)]="bonus">
   <h3 class="modal-title">Research Bonus</h3>
   <div class="modal-body">
-    <app-bonus-view [bonus]="ms.game.researchBonus"></app-bonus-view>
+    <app-bonus-view [bonus]="ms.Miners.researchBonus"></app-bonus-view>
   </div>
 </clr-modal>

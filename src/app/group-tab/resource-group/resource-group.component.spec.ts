@@ -22,7 +22,7 @@ describe("ResourceGroupComponent", () => {
     fixture = TestBed.createComponent(ResourceGroupComponent);
     component = fixture.componentInstance;
     component.ms.start();
-    component.resourceGroup = component.ms.game.resourceManager.tierGroups[1];
+    component.resourceGroup = component.ms.Miners.resourceManager.tierGroups[1];
     fixture.detectChanges();
   });
 

@@ -15,7 +15,7 @@
             Here you can search for new worlds.
             <span>
               Max level:
-              {{ ms.game.enemyManager.maxLevel }} </span
+              {{ ms.Miners.enemyManager.maxLevel }} </span
             ><br />
             You can select up to three more district options at time, if you
             have the prestige.
@@ -23,7 +23,7 @@
 
           <clr-alert
             *ngIf="
-              ms.game.resourceManager.searchX1.quantity.lte(0);
+              ms.Miners.resourceManager.searchX1.quantity.lte(0);
               else progress
             "
             [clrAlertType]="'warning'"
@@ -33,7 +33,7 @@
               <span class="alert-text">
                 You don't have any
                 <a [routerLink]="'/home/res/X1'"
-                  >{{ ms.game.resourceManager.searchX1.name }}
+                  >{{ ms.Miners.resourceManager.searchX1.name }}
                 </a>
               </span>
             </clr-alert-item>
@@ -42,7 +42,7 @@
           <ng-template #progress>
             Progress:
             <app-polynom
-              [c]="ms.game.resourceManager.searchProgress.c"
+              [c]="ms.Miners.resourceManager.searchProgress.c"
             ></app-polynom>
             <br />
           </ng-template>
@@ -53,24 +53,24 @@
               <input
                 clrInput
                 type="number"
-                [(ngModel)]="ms.game.userSearchLevel"
+                [(ngModel)]="ms.Miners.userSearchLevel"
                 name="level"
                 required
-                [max]="ms.game.enemyManager.maxLevel"
+                [max]="ms.Miners.enemyManager.maxLevel"
                 min="1"
               />
               <clr-control-error
                 >Must be a number (1 -
-                {{ ms.game.enemyManager.maxLevel }})</clr-control-error
+                {{ ms.Miners.enemyManager.maxLevel }})</clr-control-error
               ></clr-input-container
             >
             <input
               type="range"
               [name]="'sln'"
               min="1"
-              [max]="ms.game.enemyManager.maxLevel"
+              [max]="ms.Miners.enemyManager.maxLevel"
               step="1"
-              [(ngModel)]="ms.game.userSearchLevel"
+              [(ngModel)]="ms.Miners.userSearchLevel"
             />
           </form>
 
@@ -80,14 +80,14 @@
               <input
                 type="checkbox"
                 id="btn-mmd"
-                [(ngModel)]="ms.game.enemyManager.morePolybees"
+                [(ngModel)]="ms.Miners.enemyManager.morePolybees"
                 [disabled]="
-                  !ms.game.enemyManager.morePolybees && this.bonusCount >= 3
+                  !ms.Miners.enemyManager.morePolybees && this.bonusCount >= 3
                 "
               />
               <label for="btn-mmd">
                 <clr-icon
-                  [attr.shape]="ms.game.resourceManager.miningDistrict.shape"
+                  [attr.shape]="ms.Miners.resourceManager.miningDistrict.shape"
                 ></clr-icon>
               </label>
             </div>
@@ -95,14 +95,14 @@
               <input
                 type="checkbox"
                 id="btn-mcd"
-                [(ngModel)]="ms.game.enemyManager.moreNectar"
+                [(ngModel)]="ms.Miners.enemyManager.moreNectar"
                 [disabled]="
-                  !ms.game.enemyManager.moreNectar && this.bonusCount >= 3
+                  !ms.Miners.enemyManager.moreNectar && this.bonusCount >= 3
                 "
               />
               <label for="btn-mcd">
                 <clr-icon
-                  [attr.shape]="ms.game.resourceManager.NectarDistrict.shape"
+                  [attr.shape]="ms.Miners.resourceManager.NectarDistrict.shape"
                 ></clr-icon
               ></label>
             </div>
@@ -110,14 +110,14 @@
               <input
                 type="checkbox"
                 id="btn-mhs"
-                [(ngModel)]="ms.game.enemyManager.moreHabitable"
+                [(ngModel)]="ms.Miners.enemyManager.moreHabitable"
                 [disabled]="
-                  !ms.game.enemyManager.moreHabitable && this.bonusCount >= 3
+                  !ms.Miners.enemyManager.moreHabitable && this.bonusCount >= 3
                 "
               />
               <label for="btn-mhs">
                 <clr-icon
-                  [attr.shape]="ms.game.resourceManager.habitableSpace.shape"
+                  [attr.shape]="ms.Miners.resourceManager.habitableSpace.shape"
                 ></clr-icon
               ></label>
             </div>
@@ -125,14 +125,14 @@
               <input
                 type="checkbox"
                 id="btn-mhs2"
-                [(ngModel)]="ms.game.enemyManager.moreHabitable2"
+                [(ngModel)]="ms.Miners.enemyManager.moreHabitable2"
                 [disabled]="
-                  !ms.game.enemyManager.moreHabitable2 && this.bonusCount >= 3
+                  !ms.Miners.enemyManager.moreHabitable2 && this.bonusCount >= 3
                 "
               />
               <label for="btn-mhs2">
                 <clr-icon
-                  [attr.shape]="ms.game.resourceManager.habitableSpace.shape"
+                  [attr.shape]="ms.Miners.resourceManager.habitableSpace.shape"
                 ></clr-icon
               ></label>
             </div>
@@ -140,9 +140,9 @@
               <input
                 type="checkbox"
                 id="btn-mr"
-                [(ngModel)]="ms.game.enemyManager.moreBeesBot"
+                [(ngModel)]="ms.Miners.enemyManager.moreBeesBot"
                 [disabled]="
-                  !ms.game.enemyManager.moreBeesBot && this.bonusCount >= 3
+                  !ms.Miners.enemyManager.moreBeesBot && this.bonusCount >= 3
                 "
               />
               <label for="btn-mr"> <clr-icon shape="BeesBot"></clr-icon></label>
@@ -151,7 +151,7 @@
               <input
                 type="checkbox"
                 id="btn-rand"
-                [(ngModel)]="ms.game.enemyManager.randomized"
+                [(ngModel)]="ms.Miners.enemyManager.randomized"
               />
               <label for="btn-rand">
                 <clr-icon shape="random"></clr-icon
@@ -183,10 +183,10 @@
                 Searching will cost:
                 <app-price-line
                   [canBuy]="true"
-                  [unit]="ms.game.resourceManager.searchProgress"
+                  [unit]="ms.Miners.resourceManager.searchProgress"
                   [price]="
-                    ms.game.enemyManager.getRequiredSearch(
-                      ms.game.userSearchLevel
+                    ms.Miners.enemyManager.getRequiredSearch(
+                      ms.Miners.userSearchLevel
                     )
                   "
                 ></app-price-line>
@@ -205,14 +205,14 @@
             <button
               class="btn btn-warning"
               (click)="deleteModal = true"
-              [disabled]="ms.game.enemyManager.allEnemy.length === 0"
+              [disabled]="ms.Miners.enemyManager.allEnemy.length === 0"
             >
               Mass Delete
             </button>
             <button
               class="btn btn-danger"
               (click)="deleteAllModal = true"
-              [disabled]="ms.game.enemyManager.allEnemy.length === 0"
+              [disabled]="ms.Miners.enemyManager.allEnemy.length === 0"
             >
               Delete All
             </button>
@@ -222,14 +222,14 @@
             <button
               class="btn btn"
               (click)="sortAsc()"
-              [disabled]="ms.game.enemyManager.allEnemy.length === 0"
+              [disabled]="ms.Miners.enemyManager.allEnemy.length === 0"
             >
               Sort Asc
             </button>
             <button
               class="btn btn"
               (click)="sortDesc()"
-              [disabled]="ms.game.enemyManager.allEnemy.length === 0"
+              [disabled]="ms.Miners.enemyManager.allEnemy.length === 0"
             >
               Sort Desc
             </button>
@@ -258,7 +258,7 @@
             <app-job
               cdkDrag
               *ngFor="
-                let job of ms.game.enemyManager.searchJobs;
+                let job of ms.Miners.enemyManager.searchJobs;
                 trackBy: getJobId
               "
               [job]="job"
@@ -283,7 +283,7 @@
     <p>
       Delete all enemy with level lower than
       <app-formatted-quantity
-        [quantity]="ms.game.userSearchLevel"
+        [quantity]="ms.Miners.userSearchLevel"
         [integer]="true"
       ></app-formatted-quantity
       >?

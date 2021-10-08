@@ -46,7 +46,7 @@ export class SkillGroupComponent implements OnInit, OnDestroy {
     this.skillGroup = SkillGroups.find(g => g.id === id);
     this.skillGroup.skills.map(s => s.buyAction).forEach(a => a.reload());
     this.max = Math.floor(
-      this.ms.game.prestigeManager.totalPrestige * this.skillGroup.maxPercent
+      this.ms.Miners.prestigeManager.totalPrestige * this.skillGroup.maxPercent
     ).toString();
     this.cd.markForCheck();
   }

@@ -3,7 +3,7 @@ import { ISalvable } from "../base/ISalvable";
 import { Action } from "../actions/abstractAction";
 import { MultiPrice } from "../prices/multiPrice";
 import { Price } from "../prices/price";
-import { Game } from "../game";
+import { Miners } from "../Miners";
 
 export class DarkMatterManager implements ISalvable {
   private static instance: DarkMatterManager;
@@ -15,7 +15,7 @@ export class DarkMatterManager implements ISalvable {
   static getInstance() {
     return DarkMatterManager.instance;
   }
-  constructor(public game: Game) {
+  constructor(public Miners: Miners) {
     DarkMatterManager.instance = this;
     this.darkMatter = new Resource("da");
     this.darkMatter.shape = "darkMatter";
@@ -26,7 +26,7 @@ export class DarkMatterManager implements ISalvable {
     );
     this.warpMin.name = "Minute Warp (hotkey m)";
     this.warpMin.afterBuy = (number: Decimal) => {
-      this.game.update(number.times(60).toNumber(), true);
+      this.Miners.update(number.times(60).toNumber(), true);
     };
 
     this.warpHour = new Action(
@@ -35,7 +35,7 @@ export class DarkMatterManager implements ISalvable {
     );
     this.warpHour.name = "Hour Warp (hotkey h)";
     this.warpHour.afterBuy = (number: Decimal) => {
-      this.game.update(number.times(3600).toNumber(), true);
+      this.Miners.update(number.times(3600).toNumber(), true);
     };
 
     this.actions = [this.warpMin, this.warpHour];
@@ -57,7 +57,7 @@ export class DarkMatterManager implements ISalvable {
       );
       act.name = period[1] + " Warp";
       act.afterBuy = (number: Decimal) => {
-        this.game.update(number.times(period[0]).toNumber(), true);
+        this.Miners.update(number.times(period[0]).toNumber(), true);
       };
       this.actions.push(act);
     });

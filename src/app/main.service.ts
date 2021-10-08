@@ -1,6 +1,6 @@
 import { Injectable, Inject } from "@angular/core";
 import { createWorker, ITypedWorker } from "typed-web-workers";
-import { Game } from "./model/game";
+import { Miners } from "./model/Miners";
 import { Emitters } from "./emitters";
 import { DOCUMENT } from "@angular/common";
 import { OptionsService } from "./options.service";
@@ -41,7 +41,7 @@ export class MainService {
   static researchesCompleted: string[];
 
   zipWorker: ITypedWorker<CompressRequest, CompressRequest2>;
-  game: Game;
+  Miners: Miners;
   show = false;
   lastUnitUrl = "/home/res/m";
   last: number;
@@ -106,7 +106,7 @@ export class MainService {
       this.setTheme();
     } else {
       this.setTheme();
-      this.game = new Game();
+      this.Miners = new Miners();
     }
 
     setInterval(this.update.bind(this), UP_INTERVAL);
@@ -114,9 +114,9 @@ export class MainService {
     this.startAutoSave();
 
     setTimeout(() => {
-      if (!this.game) {
+      if (!this.Miners) {
         this.setTheme();
-        this.game = new Game();
+        this.Miners = new Miners();
       }
     }, 5 * 1000);
 
@@ -151,13 +151,13 @@ export class MainService {
   }
 
   update() {
-    if (!this.game) return false;
+    if (!this.Miners) return false;
     MainService.researchesCompleted = [];
 
     const now = Date.now();
     const diff = (now - this.last) / 1000;
     // diff = diff * 1e10;
-    this.game.update(diff);
+    this.Miners.update(diff);
     this.last = now;
     this.em.updateEmitter.emit(diff);
 
@@ -188,12 +188,12 @@ export class MainService {
     }
   }
   reload() {
-    this.game.reload();
+    this.Miners.reload();
     this.em.updateEmitter.emit(0);
   }
   getSave(): any {
     const data: any = {};
-    data.g = this.game.save();
+    data.g = this.Miners.save();
     data.o = this.options.getSave();
     data.l = this.last;
     return data;
@@ -216,13 +216,13 @@ export class MainService {
       this.lastSave = data.l;
       if ("o" in data) this.options.restore(data.o);
       this.setTheme();
-      this.game = new Game();
-      this.game.load(data.g);
+      this.Miners = new Miners();
+      this.Miners.load(data.g);
       this.show = true;
       this.toastr.show(
         "You were offline for " +
           MainService.endInPipe.transform(Date.now() - this.last),
-        "Game Loaded",
+        "Miners Loaded",
         {},
         "toast-load"
       );
@@ -231,9 +231,9 @@ export class MainService {
       this.toastr.error("See console", "Load Failed");
       console.log(data);
     }
-    if (!this.game) {
+    if (!this.Miners) {
       this.setTheme();
-      this.game = new Game();
+      this.Miners = new Miners();
     }
   }
   import(str: string) {
@@ -246,7 +246,7 @@ export class MainService {
     );
   }
   save(auto = false, playfab = false) {
-    if (!this.game) return false;
+    if (!this.Miners) return false;
     let num = 0;
     if (auto) {
       num = 10;
@@ -293,7 +293,7 @@ export class MainService {
           localStorage.setItem("saveDate", Date());
           this.lastSave = Date();
           if (result.requestId === 0 || this.options.autosaveNotification) {
-            this.toastr.show("", "Game Saved", {}, "toast-save");
+            this.toastr.show("", "Miners Saved", {}, "toast-save");
           }
         } else if (result.requestId === 1) {
           this.em.zipEmitter.emit(result.zipped);
@@ -303,14 +303,14 @@ export class MainService {
         // console.log(result);
       } else {
         console.log("Error");
-        this.toastr.error("Game not Saved");
+        this.toastr.error("Miners not Saved");
       }
     } else {
       if (result.obj != null) {
         this.load2(result.obj);
       } else {
         console.log("Error");
-        this.toastr.error("Game not Loaded");
+        this.toastr.error("Miners not Loaded");
       }
     }
     this.em.saveEmitter.emit("s");
@@ -327,7 +327,7 @@ export class MainService {
     }
 
     try {
-      const authTicket = this.kongregate.services.getGameAuthToken();
+      const authTicket = this.kongregate.services.getMinersAuthToken();
       const requestData = {
         TitleId: this.titleId,
         KongregateId: this.kongregate.services.getUserId(),
@@ -408,8 +408,8 @@ export class MainService {
       return false;
     }
     if (data) {
-      console.log("Game Saved!");
-      this.toastr.success("Game saved to PlayFab");
+      console.log("Miners Saved!");
+      this.toastr.success("Miners saved to PlayFab");
       return true;
     }
   }
@@ -504,20 +504,20 @@ export class MainService {
    * Sends high score to kongregate
    */
   sendKong(notify = false) {
-    if (!this.game || !this.kongregate) return false;
+    if (!this.Miners || !this.kongregate) return false;
     try {
       this.kongregate.stats.submit(
         "Prestige",
-        this.game.prestigeManager.totalPrestige
+        this.Miners.prestigeManager.totalPrestige
       );
       this.kongregate.stats.submit(
         "Ascension",
-        this.game.prestigeManager.ascension
+        this.Miners.prestigeManager.ascension
       );
-      this.kongregate.stats.submit("MaxEnemy", this.game.enemyManager.maxLevel);
+      this.kongregate.stats.submit("MaxEnemy", this.Miners.enemyManager.maxLevel);
       this.kongregate.stats.submit(
         "Log10(Max Dark Matter)",
-        this.game.darkMatterManager.darkMatter.quantity.log10()
+        this.Miners.darkMatterManager.darkMatter.quantity.log10()
       );
       if (notify) {
         this.toastr.success("Score submitted", "Kongregate");

@@ -14,7 +14,7 @@ export class SearchAutoComponent implements OnInit {
   constructor(public ms: MainService) {}
 
   ngOnInit() {
-    this.automators = this.ms.game.automatorManager.searchAutomators.filter(a =>
+    this.automators = this.ms.Miners.automatorManager.searchAutomators.filter(a =>
       a.isUnlocked()
     );
   }

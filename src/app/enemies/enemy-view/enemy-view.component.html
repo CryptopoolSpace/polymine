@@ -52,7 +52,7 @@
       <button
         class="btn btn-success"
         (click)="attack()"
-        [disabled]="ms.game.enemyManager.currentEnemy"
+        [disabled]="ms.Miners.enemyManager.currentEnemy"
       >
         Attack
       </button>
@@ -66,13 +66,13 @@
     <br />
     <clr-alert
       [clrAlertType]="'info'"
-      *ngIf="ms.game.enemyManager.currentEnemy"
+      *ngIf="ms.Miners.enemyManager.currentEnemy"
     >
       <clr-alert-item>
         <span class="alert-text">
           You cannot attack {{ enemy.name }} because you are already at war with
           <a [routerLink]="'/battle'"
-            >{{ ms.game.enemyManager.currentEnemy.name }}
+            >{{ ms.Miners.enemyManager.currentEnemy.name }}
           </a>
           <br />
           You can surrender and change enemy anytime on the

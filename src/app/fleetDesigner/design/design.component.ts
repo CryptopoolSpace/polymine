@@ -86,7 +86,7 @@ export class DesignComponent implements OnInit, OnDestroy, AfterViewInit {
 
     const shipType = this.unlockedShips.find(t => t.id === this.type);
     const shipClass = Classes.find(c => c.id === this.class);
-    const design = this.ms.game.fleetManager.addDesign(
+    const design = this.ms.Miners.fleetManager.addDesign(
       this.name,
       shipType,
       shipClass
@@ -102,7 +102,7 @@ export class DesignComponent implements OnInit, OnDestroy, AfterViewInit {
     if (id === undefined) {
       id = "";
     }
-    const b = this.ms.game.fleetManager.ships.find(u => u.id === id);
+    const b = this.ms.Miners.fleetManager.ships.find(u => u.id === id);
     if (b) this.design = b;
 
     this.cd.markForCheck();
@@ -113,7 +113,7 @@ export class DesignComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   isDisabled(): boolean {
     return (
-      this.ms.game.fleetManager.ships.length >= MAX_DESIGN ||
+      this.ms.Miners.fleetManager.ships.length >= MAX_DESIGN ||
       !(this.name.trim() !== "" && this.type.length > 0)
     );
   }

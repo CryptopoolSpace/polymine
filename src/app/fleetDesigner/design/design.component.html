@@ -20,7 +20,7 @@
   <clr-alert
     [clrAlertType]="'warning'"
     [clrAlertClosable]="false"
-    *ngIf="ms.game.fleetManager.ships.length >= 20"
+    *ngIf="ms.Miners.fleetManager.ships.length >= 20"
   >
     <clr-alert-item>
       <span class="alert-text">
@@ -31,7 +31,7 @@
 
   <div class="clr-row">
     <div class="clr-col-auto">
-      <!-- <clr-alert *ngIf="ms.game.fleetManager.ships.length < 1">
+      <!-- <clr-alert *ngIf="ms.Miners.fleetManager.ships.length < 1">
         <clr-alert-item>
           <span class="alert-text">
             You don't have any ship design. Create a ship design in order to
@@ -89,7 +89,7 @@
             <td class="left">Total Naval capacity:</td>
             <td>
               <app-formatted-quantity
-                [quantity]="ms.game.fleetManager.totalNavalCapacity"
+                [quantity]="ms.Miners.fleetManager.totalNavalCapacity"
                 [integer]="true"
               >
               </app-formatted-quantity>
@@ -99,7 +99,7 @@
             <td class="left">Used Naval capacity:</td>
             <td>
               <app-formatted-quantity
-                [quantity]="ms.game.fleetManager.usedNavalCapacity"
+                [quantity]="ms.Miners.fleetManager.usedNavalCapacity"
                 [integer]="true"
               >
               </app-formatted-quantity>
@@ -109,7 +109,7 @@
             <td class="left">Total Ships:</td>
             <td>
               <app-formatted-quantity
-                [quantity]="ms.game.fleetManager.totalShips"
+                [quantity]="ms.Miners.fleetManager.totalShips"
                 [integer]="true"
               >
               </app-formatted-quantity>

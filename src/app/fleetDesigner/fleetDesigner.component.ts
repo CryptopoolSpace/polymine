@@ -31,7 +31,7 @@ export class FleetDesignerComponent implements OnInit, AfterViewInit {
   }
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(
-      this.ms.game.fleetManager.ships,
+      this.ms.Miners.fleetManager.ships,
       event.previousIndex,
       event.currentIndex
     );

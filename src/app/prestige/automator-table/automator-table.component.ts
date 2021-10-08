@@ -27,7 +27,7 @@ export class AutomatorTableComponent implements OnInit {
 
   ngOnInit() {
     for (let i = 0; i < 100; i++) {
-      const auto = this.ms.game.automatorManager.automatorGroups
+      const auto = this.ms.Miners.automatorManager.automatorGroups
         .filter(a => a.prestigeLevel === i)
         .map(a => [a.name, a.description]);
       const timer = TIME_LEVELS.filter(t => t[1] === i).map(a => a[0]);

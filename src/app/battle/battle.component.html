@@ -1,21 +1,21 @@
 <div
   class="content-area"
-  *ngIf="ms.game.enemyManager.currentEnemy; else noEnemy"
+  *ngIf="ms.Miners.enemyManager.currentEnemy; else noEnemy"
 >
-  <div class="clr-row" *ngIf="ms.game.enemyManager.currentEnemy">
+  <div class="clr-row" *ngIf="ms.Miners.enemyManager.currentEnemy">
     <div class="clr-col-12 clr-col-sm-12 clr-col-lg-7">
       <h1>
         <clr-icon
-          [attr.shape]="ms.game.enemyManager.currentEnemy?.shape"
+          [attr.shape]="ms.Miners.enemyManager.currentEnemy?.shape"
           size="48"
           class="resIcon"
         ></clr-icon>
-        {{ ms.game.enemyManager.currentEnemy?.name }}
+        {{ ms.Miners.enemyManager.currentEnemy?.name }}
       </h1>
       <span>
         Level
         <app-formatted-quantity
-          [quantity]="ms.game.enemyManager.currentEnemy.level"
+          [quantity]="ms.Miners.enemyManager.currentEnemy.level"
           [integer]="true"
         ></app-formatted-quantity>
         &nbsp;&nbsp;&nbsp; District per icon tile:
@@ -25,21 +25,21 @@
         ></app-formatted-quantity>
         &nbsp;&nbsp;&nbsp; Fight time:
         <app-formatted-quantity
-          [quantity]="ms.game.fleetManager.timePerFight"
+          [quantity]="ms.Miners.fleetManager.timePerFight"
           [integer]="false"
         ></app-formatted-quantity>
         s
       </span>
 
       <br />
-      <!-- <p>Level: {{ ms.game.enemyManager.currentEnemy.level }}</p> -->
+      <!-- <p>Level: {{ ms.Miners.enemyManager.currentEnemy.level }}</p> -->
 
       <div class="btn-group ">
         <button
           class="btn btn-success"
           (click)="startBattle()"
           [disabled]="
-            ms.game.enemyManager.inBattle || !ms.game.fleetManager.fightEnabled
+            ms.Miners.enemyManager.inBattle || !ms.Miners.fleetManager.fightEnabled
           "
         >
           <clr-icon shape="ship"></clr-icon>
@@ -48,17 +48,17 @@
         <button
           class="btn btn-primary nuke"
           [ngClass]="{
-            'btn-success': ms.game.enemyManager.nukeAction.nukeAll,
-            'btn-primary': !ms.game.enemyManager.nukeAction.nukeAll
+            'btn-success': ms.Miners.enemyManager.nukeAction.nukeAll,
+            'btn-primary': !ms.Miners.enemyManager.nukeAction.nukeAll
           }"
-          *ngIf="ms.game.enemyManager.currentEnemy.level > 8"
-          [disabled]="ms.game.enemyManager.nukeAction.maxBuy.lte(0)"
-          (click)="nuke(ms.game.enemyManager.nukeAction.maxBuy)"
+          *ngIf="ms.Miners.enemyManager.currentEnemy.level > 8"
+          [disabled]="ms.Miners.enemyManager.nukeAction.maxBuy.lte(0)"
+          (click)="nuke(ms.Miners.enemyManager.nukeAction.maxBuy)"
         >
           <clr-icon shape="missile"></clr-icon>
 
           <app-formatted-quantity
-            [quantity]="ms.game.enemyManager.nukeAction.maxBuy"
+            [quantity]="ms.Miners.enemyManager.nukeAction.maxBuy"
             [integer]="true"
           ></app-formatted-quantity>
         </button>
@@ -73,7 +73,7 @@
           <input
             type="checkbox"
             id="btn-demo-check-1"
-            [(ngModel)]="ms.game.fleetManager.autoFight"
+            [(ngModel)]="ms.Miners.fleetManager.autoFight"
           />
           <label for="btn-demo-check-1">A. Fight</label>
         </div>
@@ -81,18 +81,18 @@
           <input
             type="checkbox"
             id="btn-demo-check-2"
-            [(ngModel)]="ms.game.fleetManager.autoReinforce"
+            [(ngModel)]="ms.Miners.fleetManager.autoReinforce"
           />
           <label for="btn-demo-check-2">A. Reinforce</label>
         </div>
         <div
           class="checkbox btn"
-          *ngIf="ms.game.enemyManager.currentEnemy.level > 8"
+          *ngIf="ms.Miners.enemyManager.currentEnemy.level > 8"
         >
           <input
             type="checkbox"
             id="check-3"
-            [(ngModel)]="ms.game.enemyManager.autoNuke"
+            [(ngModel)]="ms.Miners.enemyManager.autoNuke"
           />
           <label for="check-3">A. Nuke</label>
         </div>
@@ -101,7 +101,7 @@
             type="checkbox"
             id="check-next"
             title="Auto proceed to next enemy."
-            [(ngModel)]="ms.game.enemyManager.autoNext"
+            [(ngModel)]="ms.Miners.enemyManager.autoNext"
           />
           <label for="check-next">A. Next</label>
         </div>
@@ -123,7 +123,7 @@
                 type="number"
                 min="0"
                 max="100"
-                [(ngModel)]="ms.game.fleetManager.autoFightPer"
+                [(ngModel)]="ms.Miners.fleetManager.autoFightPer"
               />
             </clr-input-container>
           </form>
@@ -152,7 +152,7 @@
                 type="number"
                 min="0"
                 [attr.max]="maxExtraTile"
-                [(ngModel)]="ms.game.enemyManager.mergeLevel"
+                [(ngModel)]="ms.Miners.enemyManager.mergeLevel"
               />
             </clr-input-container>
           </form>
@@ -161,15 +161,15 @@
 
       <!-- <br /><br /> -->
       <app-battlefield
-        [enemy]="ms.game.enemyManager.currentEnemy"
+        [enemy]="ms.Miners.enemyManager.currentEnemy"
       ></app-battlefield>
     </div>
     <div class="clr-col-12 clr-col-sm-12 clr-col-lg-5">
       <h4>{{ ms.options.name }}</h4>
-      <app-fleet-table [fleet]="ms.game.fleetManager.ships"></app-fleet-table>
-      <h4>{{ ms.game.enemyManager.currentEnemy?.name }}</h4>
+      <app-fleet-table [fleet]="ms.Miners.fleetManager.ships"></app-fleet-table>
+      <h4>{{ ms.Miners.enemyManager.currentEnemy?.name }}</h4>
       <app-fleet-table
-        [fleet]="ms.game.enemyManager.currentEnemy.currentZone.ships"
+        [fleet]="ms.Miners.enemyManager.currentEnemy.currentZone.ships"
       ></app-fleet-table>
     </div>
   </div>
@@ -180,7 +180,7 @@
   <h3 class="modal-title">Surrender</h3>
   <div class="modal-body">
     <p>
-      {{ ms.game.enemyManager.currentEnemy?.name }} will be deleted. You will be
+      {{ ms.Miners.enemyManager.currentEnemy?.name }} will be deleted. You will be
       able to attack other enemies. There are no penalties.
     </p>
   </div>
@@ -213,7 +213,7 @@
         type="checkbox"
         id="check-next"
         title="Auto proceed to next enemy."
-        [(ngModel)]="ms.game.enemyManager.autoNext"
+        [(ngModel)]="ms.Miners.enemyManager.autoNext"
       />
       <label for="check-next">Auto Next</label>
     </div>

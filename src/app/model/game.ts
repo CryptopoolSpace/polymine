@@ -18,8 +18,8 @@ import { Classes } from "./fleet/class";
 
 export const ZERO_DECIMAL_IMMUTABLE = new Decimal(0);
 
-export class Game {
-  private static instance: Game;
+export class Miners {
+  private static instance: Miners;
 
   resourceManager: ResourceManager;
   researchManager: ResearchManager;
@@ -37,12 +37,12 @@ export class Game {
   requiredWarp = ZERO_DECIMAL_IMMUTABLE;
 
   constructor() {
-    Game.instance = this;
+    Miners.instance = this;
     Preset.initPreset();
     this.init();
   }
-  static getInstance(): Game {
-    return Game.instance;
+  static getInstance(): Miners {
+    return Miners.instance;
   }
   init(prestige = false) {
     this.researchBonus = new BonusStack();
@@ -150,7 +150,7 @@ export class Game {
         this.shipyard.reloadTimes();
       }
       if (n > 49) {
-        console.log("This should not happening. Game loop is looping too much.");
+        console.log("This should not happening. Miners loop is looping too much.");
       }
 
       //  Convert computing to researches

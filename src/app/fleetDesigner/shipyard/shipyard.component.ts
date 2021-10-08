@@ -30,15 +30,15 @@ export class ShipyardComponent implements OnInit, OnDestroy, AfterViewInit {
     if (typeof preventScroll === typeof Function) preventScroll();
   }
   ngOnInit() {
-    this.ms.game.fleetManager.reloadSliders();
-    this.ms.game.fleetManager.resetSliders();
-    this.totalPrice = this.ms.game.fleetManager.getTotalPrice();
+    this.ms.Miners.fleetManager.reloadSliders();
+    this.ms.Miners.fleetManager.resetSliders();
+    this.totalPrice = this.ms.Miners.fleetManager.getTotalPrice();
 
     this.subscriptions.push(
       this.ms.em.updateEmitter.subscribe(() => {
         this.onSliderChange();
-        this.ms.game.fleetManager.reloadSliders();
-        const newPrice = this.ms.game.fleetManager.getTotalPrice();
+        this.ms.Miners.fleetManager.reloadSliders();
+        const newPrice = this.ms.Miners.fleetManager.getTotalPrice();
         if (!newPrice.eq(this.totalPrice)) this.totalPrice = newPrice;
         this.cd.markForCheck();
       })
@@ -52,7 +52,7 @@ export class ShipyardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(
-      this.ms.game.shipyard.jobs,
+      this.ms.Miners.shipyard.jobs,
       event.previousIndex,
       event.currentIndex
     );
@@ -61,12 +61,12 @@ export class ShipyardComponent implements OnInit, OnDestroy, AfterViewInit {
     return data.id;
   }
   onSliderChange() {
-    this.ms.game.fleetManager.sliderChange();
+    this.ms.Miners.fleetManager.sliderChange();
   }
   save() {
-    this.ms.game.fleetManager.save();
+    this.ms.Miners.fleetManager.save();
   }
   make() {
-    if (this.ms.game.fleetManager.save()) this.ms.game.fleetManager.make();
+    if (this.ms.Miners.fleetManager.save()) this.ms.Miners.fleetManager.make();
   }
 }

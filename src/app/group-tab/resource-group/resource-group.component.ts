@@ -97,26 +97,26 @@ export class ResourceGroupComponent
     this.actions = new Array<Action>();
 
     // if (
-    //   this.resourceGroup === this.ms.game.resourceManager.matGroup &&
-    //   this.ms.game.resourceManager.Honey.unlockedActions.length > 0
+    //   this.resourceGroup === this.ms.Miners.resourceManager.matGroup &&
+    //   this.ms.Miners.resourceManager.Honey.unlockedActions.length > 0
     // ) {
-    //   if (this.ms.game.resourceManager.Honey.actions[0].unlocked) {
-    //     this.buyAction = this.ms.game.resourceManager.Honey.actions[0];
+    //   if (this.ms.Miners.resourceManager.Honey.actions[0].unlocked) {
+    //     this.buyAction = this.ms.Miners.resourceManager.Honey.actions[0];
     //     this.actions.push(this.buyAction);
     //   }
 
-    //   if (this.ms.game.resourceManager.Bee.unlocked) {
-    //     this.mineAction = this.ms.game.resourceManager.Bee.actions[0];
+    //   if (this.ms.Miners.resourceManager.Bee.unlocked) {
+    //     this.mineAction = this.ms.Miners.resourceManager.Bee.actions[0];
     //     this.actions.push(this.mineAction);
-    //     this.refundAction = this.ms.game.resourceManager.Bee.actions[1];
+    //     this.refundAction = this.ms.Miners.resourceManager.Bee.actions[1];
     //     this.actions.push(this.refundAction);
     //   }
     //   return true;
     // }
     if (
       this.resourceGroup ===
-      this.ms.game.resourceManager.tierGroups[
-        this.ms.game.resourceManager.tierGroups.length - 1
+      this.ms.Miners.resourceManager.tierGroups[
+        this.ms.Miners.resourceManager.tierGroups.length - 1
       ]
     ) {
       return true;
@@ -135,7 +135,7 @@ export class ResourceGroupComponent
         this.buyAction.name = this.resourceGroup.action1Name;
       }
 
-      if (this.resourceGroup === this.ms.game.resourceManager.tierGroups[1]) {
+      if (this.resourceGroup === this.ms.Miners.resourceManager.tierGroups[1]) {
         this.mineAction = new MultiBuyAction(
           this.resourceGroup.selected.map(r => r.actions[1])
         );

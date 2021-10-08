@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormatPipe } from "../../format.pipe";
 import { PriceLineComponent } from "./price-line.component";
-import { getGame, defaultImport } from "src/app/app.component.spec";
+import { getMiners, defaultImport } from "src/app/app.component.spec";
 
 describe("PriceLineComponent", () => {
   let component: PriceLineComponent;
@@ -19,7 +19,7 @@ describe("PriceLineComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PriceLineComponent);
     component = fixture.componentInstance;
-    component.unit = getGame().resourceManager.Polybees;
+    component.unit = getMiners().resourceManager.Polybees;
     fixture.detectChanges();
   });
 

@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     return res.id;
   }
   reload() {
-    this.ms.game.resourceManager.unlockedResources
+    this.ms.Miners.resourceManager.unlockedResources
       .filter(r => r.modStack)
       .forEach(r => {
         r.modStack.reload();

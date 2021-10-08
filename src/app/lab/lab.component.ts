@@ -36,12 +36,12 @@ export class LabComponent implements OnInit, OnDestroy, AfterViewInit {
     if (typeof preventScroll === typeof Function) preventScroll();
   }
   ngOnInit() {
-    this.ms.game.researchManager.isNew = false;
+    this.ms.Miners.researchManager.isNew = false;
     this.subscriptions.push(
       this.ms.em.updateEmitter.subscribe(() => {
-        this.resMulti = this.ms.game.researchBonus.getTotalBonus();
+        this.resMulti = this.ms.Miners.researchBonus.getTotalBonus();
         this.resPerSec = this.resMulti.times(
-          this.ms.game.resourceManager.computing.c
+          this.ms.Miners.resourceManager.computing.c
         );
         this.cd.markForCheck();
       })
@@ -71,18 +71,18 @@ export class LabComponent implements OnInit, OnDestroy, AfterViewInit {
     return res.id;
   }
   sortPrice() {
-    this.ms.game.researchManager.sortPrice();
+    this.ms.Miners.researchManager.sortPrice();
   }
   allBacklog() {
-    this.ms.game.researchManager.backLog = this.ms.game.researchManager.backLog.concat(
-      this.ms.game.researchManager.toDo
+    this.ms.Miners.researchManager.backLog = this.ms.Miners.researchManager.backLog.concat(
+      this.ms.Miners.researchManager.toDo
     );
-    this.ms.game.researchManager.toDo = [];
+    this.ms.Miners.researchManager.toDo = [];
   }
   allToDo() {
-    this.ms.game.researchManager.toDo = this.ms.game.researchManager.toDo.concat(
-      this.ms.game.researchManager.backLog
+    this.ms.Miners.researchManager.toDo = this.ms.Miners.researchManager.toDo.concat(
+      this.ms.Miners.researchManager.backLog
     );
-    this.ms.game.researchManager.backLog = [];
+    this.ms.Miners.researchManager.backLog = [];
   }
 }
